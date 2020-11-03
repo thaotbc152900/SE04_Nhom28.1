@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Visualizations - Binary Search Tree</title>
+
+<!--css-->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/viz.css">
+
+<link rel="stylesheet" href="css/bst.css">
+
+<!--js-->
+<script src="js/external/jquery-1.10.2.js"></script>
+<script src="js/external/jquery-ui.js"></script>
+<script src="js/viz.js"></script>
+<script src="js/common.js"></script>
+<script src="js/actions/bst_actions.js"></script>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+<script src="js/external/d3.v3.js"></script>
+<!-- more scripts are below-->
+
+<!--fonts-->
+<link href="fonts/silkscreen/stylesheet.css" rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+<div id="top-bar">
+	<a id="home" href="index.html">D<span class="colour">S</span>A</a>
+    <span id="title">
+    	<a id="title-Sort">Sort</a>&nbsp&nbsp
+    	<a id="title-insort" class="selected-viz">Insertion Sort</a>
+    	<a id="title-sesort" class="selected-viz">Selection Sort</a>
+        <a id="title-bubsort" class="selected-viz">Bubble Sort</a>
+    </span>
+    <a id="fb-login" href="#" target="_blank">Facebook connect</a>
+    <span id="trick">
+		<fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
+    </span>
+    <div id="mode-menu">
+    	<div id="mode-button">Exploration Mode<img src="img/arrow_white.png"/></div>
+        <div id="other-modes">
+            <a href="#">Tutorial Mode</a>
+        </div>
+    </div>
+</div>
+    
+    <div id="viz"></div>
+    
+    <div id="current-action" class="panel"><p></p></div>
+    
+    <div id="actions" class="panel">
+		<p id="create">Create</p>
+		<p id="sort">Sort</p>
+    </div>
+    <div id="actions-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide actions panel"/></div>
+    
+    <div id="status" class="panel"><p></p></div>
+    <div id="status-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide status panel"/></div>
+    
+    <div id="codetrace" class="panel">
+    	<!--can add class "highlighed" to hightlight one line-->
+    	<p id="code1" style="padding-top: 10px;"></p>
+        <p id="code2"></p>
+        <p id="code3"></p>
+		<p id="code4"></p>
+		<p id="code5"></p>
+		<p id="code6"></p>
+		<p id="code7" style="padding-bottom: 10px;"></p>
+    </div>
+    <div id="codetrace-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide codetrace panel"/></div>
+    
+<div id="left-bar"></div>
+<div id="right-bar"></div>
+<!-- Bottom bar and overlay popups -->
+<div id="bottom-bar">
+	<a id="trigger-about">About</a>
+    <a id="trigger-team">Team</a>
+    <a id="trigger-terms">Terms of use</a>
+</div>
+
+<div id="media-controls">
+	<div id="speed-control">slow<div id="speed-input"></div>fast</div>
+	<span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick=goToBeginning()><img src="img/goToBeginning.png" alt="go to beginning" /></span>
+	<span id="previous" class="media-control-button" title="step backward" onclick=stepBackward()><img src="img/prevFrame.png" alt="previous frame" /></span>
+    <span id="pause" class="media-control-button" title="pause" onclick=pause()><img src="img/pause.png" alt="pause" /></span>
+    <span id="play" class="media-control-button" title="play" onclick=play()><img src="img/play.png" alt="play" /></span>
+    <span id="next" class="media-control-button" title="step forward" onclick=stepForward()><img src="img/nextFrame.png" alt="next frame" /></span>
+    <span id="go-to-end" class="media-control-button" title="go to end" onclick=goToEnd()><img src="img/goToEnd.png" alt="go to end"/></span>
+    <div id="progress-bar" class="media-control-button"></div>
+</div>
+
+<div id="dark-overlay"></div>
+<div id="about" class="overlays"></div>
+<div id="team" class="overlays"></div>
+<div id="termsofuse" class="overlays"></div>
+
+<!--tutorial dialogs here-->
+<div id="bst-tutorial-1" class="tutorial-dialog">
+	
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-2" class="tutorial-dialog">
+	
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-3" class="tutorial-dialog">
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-4" class="tutorial-dialog">
+	
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-5" class="tutorial-dialog">
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-6" class="tutorial-dialog">
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-7" class="tutorial-dialog">
+    <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
+</div>
+<div id="bst-tutorial-8" class="tutorial-dialog">
+	Return to "Exploration Mode" to start exploring!
+</div>
+
+<script src="js/graph_library/constant.js"></script>
+<script src="js/graph_library/properties.js"></script>
+<script src="js/graph_library/helperObjects.js"></script>
+<script src="js/graph_library/misc.js"></script>
+<script src="js/graph_library/Widget.js"></script>
+<script src="js/graph_library/GraphWidget.js"></script>
+<script src="js/graph_library/GraphVertexWidget.js"></script>
+<script src="js/graph_library/GraphEdgeWidget.js"></script>
+<script src="js/widgets/BstWidget.js"></script>
+
+</body>
+</html>

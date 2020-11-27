@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Merge Sort</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top">
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button w3-padding-large">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Insert Sort</a>
+		    <a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Quick Sort</a>
+		</div>
+		<!-- Navbar on small screens -->
+		<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+		    <a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Insert Sort</a>
+			<a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Quick Sort</a>
+		    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+		</div>
+	</div>
+	<div class="w3-left">
+		<div id="actions" class="panel">
+		<a href="sort.html">Demo</a>	
+		</div>
+	</div>
+	<div class="w3-content w3-display-container">
+			<div class="w3-content w3-container w3-padding-64" id="bubblesort">
+				<h2 class="w3-center" style="color: orange" ><b>Giới thiệu giải thuật sắp xếp trộn (Merge Sort).</b></h2>
+				<h5>Sắp xếp trộn (Merge Sort) là một giải thuật sắp xếp dựa trên giải thuật <b>Chia để trị (Divide and Conquer)</b>. Với độ phức tạp thời gian trường hợp xấu nhất là <b>Ο(n log n)</b> thì đây là một trong các giải thuật đáng được quan tâm nhất.</h5>
+				<h5>Đầu tiên, giải thuật sắp xếp trộn chia mảng thành hai nửa và sau đó kết hợp chúng lại với nhau thành một mảng đã được sắp xếp.</h5>
+				<h2 class="w3-center" style="color: orange"><b>Ý tưởng thuật toán</b></h2>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/mersort/mer1.png" >
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/mersort/mer2.png" >
+					</div>
+				<h5>Hình ảnh trên hiển thị cho bạn toàn bộ sơ đồ tiến trình của thuật toán merge sort cho mảng [5, 4, 6, 1, 2, 7, 3]. Nếu nhìn kỹ hơn vào sơ đồ này, chúng ta có thể thấy mảng ban đầu được lặp lại hành động chia cho tới khi kích thước các mảng sau chia là 1. Khi kích thước các mảng con là 1, tiến trình gộp sẽ bắt đầu thực hiện gộp lại các mảng này cho tới khi hoàn thành và chỉ còn một mảng đã sắp xếp.</h5>
+			</div>
+	</div>
+		
+	<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

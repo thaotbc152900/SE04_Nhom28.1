@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Sorting</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top">
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button w3-padding-large">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Insert Sort</a>
+		    <a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Quick Sort</a>
+		</div>
+		<!-- Navbar on small screens -->
+		<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+		    <a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Insert Sort</a>
+			<a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Quick Sort</a>
+		    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+		</div>
+	</div>
+	<div class="w3-left">
+		<div class="w3-bar w3-black w3-card">
+			<a href="../sort.html" class="w3-bar-item w3-button w3-padding-large">Demo</a>	
+		</div>
+	</div>
+	<div class="w3-content w3-display-container">
+			<div class="w3-content w3-container w3-padding-64" id="bubblesort">
+				<h2 class="w3-center" style="color: orange" ><b>Giới thiệu sắp xếp nhanh (Quick Sort).</b></h2>
+				<h5><b>Giải thuật sắp xếp nhanh (Quick Sort)</b> là một giải thuật hiệu quả cao và dựa trên việc chia mảng dữa liệu thành các mảng nhỏ hơn. Giải thuật sắp xếp nhanh chia mảng thành hai phần bằng cách so sánh từng phần tử của mảng với một phần tử được chọn gọi là phần tử chốt <b>(Pivot)</b>: một mảng bao gồm các phần tử nhỏ hơn hoặc bằng phần tử chốt và mảng còn lại bao gồm các phần tử lớn hơn hoặc bằng phần tử chốt.</h5>
+				<h5>Tiến trình chia này diễn ra tiếp tục cho tới khi độ dài của các mảng con đều bằng 1. Giải thuật sắp xếp nhanh tỏ ra khá hiệu quả với các tập dữ liệu lớn khi mà độ phức tạp trường hợp trung bình và trường hợp xấu nhất là <b>O(nlogn)</b> với n là số phần tử.</h5>
+				<h5><b>Kỹ thuật chọn phần tử chốt trong giải thuật sắp xếp nhanh (Quick Sort)</b></h5>
+				<h5>Kỹ thuật chọn phần tử chốt ảnh hưởng khá nhiều đến khả năng rơi vào các vòng lặp vô hạn đối với các trường hợp đặc biệt. Tốt nhất là chọn phần tử chốt (pivot) nằm ở trung vị của danh sách. Khi đó, sau <b>log<sub>2</sub>(n)</b> lần chia chúng ta sẽ đạt tới kích thước các mảng con bằng 1.</h5>
+				<h5>Dưới đây là các cách chọn phần tử chốt:</h5>
+				<ul>
+					<h5><li>Chọn phần tử đứng đầu hoặc đứng cuối làm phần tử chốt.</li></h5>
+					<h5><li>Chọn phần tử đứng giữa danh sách làm phần tử chốt.</li></h5>
+					<h5><li>Chọn phần tử trung vị trong ba phần tử đứng đầu, đứng giữa và đứng cuối làm phần tử chốt</li></h5>
+					<h5><li>Chọn phần tử ngẫu nhiên làm phần tử chốt. Tuy nhiên cách này rất dễ dẫn đến khả năng rơi vào các trường hợp đặc biệt.</li></h5>
+				</ul>
+				<h5>Cách hoạt động của Quick Sort</h5>
+					<h5>Ví dụ sắp xếp dãy a = [6, 3, 5, 2, 1, 4 , 8, 7] thành dãy không giảm:</h5>
+					<h5>Khởi tạo biến <i style="color: red">l</i> và <i style="color: red">r</i>là chỉ số đầu và cuối của đoạn cần sắp xếp, khởi tạo l = 0 và r = n-1.</h5>
+					<h5>Xác định phần tử chốt trong dãy <i style="color: red">p = a[(l+r)/2] = a[3] = 2</i>.</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/quick/quick1.png" >
+					</div>
+					<h5>Sử dụng biến <i style="color: red">i</i> và biến <i style="color: red">j</i> để chia dãy thành 2 phần. Biến i sẽ chạy từ <i style="color: red">l</i> đến <i style="color: red">r</i> và biến <i style="color: red">j</i> sẽ chạy từ <i style="color: red">r</i> về <i style="color: red">l</i>. Nếu phát hiện <i style="color: red"> a[i] >= p</i> và <i style="color: red">a[j] <= p</i> thì dừng lại và tráo đổi ví trí của chúng.</h5>
+					<div class="w3-center">
+						<img  src="../img/quick/quick2.png">
+					</div>
+					<h5>Hình ảnh quá trình thực hiện đến khi <i style="color: red">i >= j</i> thì dừng:</h5>
+					<div class="w3-center">
+						<img  src="../img/quick/quick3.png">
+					</div>
+					<h5>Đổi chỗ <i style="color: red">a[i]</i> và <i style="color: red">a[j]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/quick/quick4.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/quick/quick5.png">
+					</div>
+					<h5>Đổi chỗ <i style="color: red">a[i]</i> và <i style="color: red">a[j]</i>:</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/bubsort/bub6.png">
+					</div>
+					<h5>Ta thấy <i style="color: red">i >= j</i>, ta đã chia dãy dc thành hai phần là:</h5>
+					<ul>
+						<h5><li>Dãy từ 0 đến j: Dãy có giá trị nhỏ hơn hoặc bằng phần tử chốt</li></h5>
+						<h5><li>Dãy từ 0 đến j: Dãy có giá trị nhỏ hơn hoặc bằng phần tử chốt</li></h5>
+					</ul>
+					<h5>Lúc này ta tiếp tục dùng đệ quy để sắp xếp hai dãy đó.</h5>
+					<h5>Code mẫu C++</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/quick/quick7.png">
+					</div>
+
+			</div>
+	</div>
+		
+	<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

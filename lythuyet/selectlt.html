@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Sorting</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top">
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button w3-padding-large">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Insert Sort</a>
+		    <a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Quick Sort</a>
+		</div>
+		<!-- Navbar on small screens -->
+		<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+		    <a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Insert Sort</a>
+			<a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Quick Sort</a>
+		    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+		</div>
+	</div>
+	<!-- <div class="w3-left">
+		<div id="actions" class="panel">
+		<a href="sort.html">Demo</a>	
+		</div>
+	</div> -->
+	<div class="w3-content w3-display-container">
+		<div class="mySlides">
+			<div class="w3-content w3-container w3-padding-64" id="bubblesort">
+				<h2 class="w3-center" style="color: orange" ><b>Giới thiệu giải thuật sắp xếp chọn (Selection Sort)</b></h2>
+				<h5><b>Giải thuật sắp xếp chọn (Selection Sort)</b> là một giải thuật đơn giản. Giải thuật sắp xếp này là một giải thuật dựa trên việc so sánh <b>in-place</b>, trong đó danh sách được chia thành hai phần, phần được sắp xếp <b>(sorted list)</b> ở bên trái và phần chưa được sắp xếp <b>(unsorted list)</b> ở bên phải. Ban đầu, phần được sắp xếp là trống và phần chưa được sắp xếp là toàn bộ danh sách ban đầu.</h5>
+				<h5>Phần tử nhỏ nhất được lựa chọn từ mảng chưa được sắp xếp và được tráo đổi với phần bên trái nhất và phần tử đó trở thành phần tử của mảng được sắp xếp. Tiến trình này tiếp tục cho tới khi toàn bộ từng phần tử trong mảng chưa được sắp xếp đều được di chuyển sang mảng đã được sắp xếp.</h5>
+				<h5>Giải thuật này không phù hợp với tập dữ liệu lớn khi mà độ phức tạp trường hợp xấu nhất và trường hợp trung bình là <b>O(n<sup>2</sup>)</b> với n là số phần tử.</h5>
+				<h2 class="w3-center" style="color: orange"><b>Cách hoạt động của Selection Sort:</b></h2>
+				<h5>Giả sử chúng ta có một mảng không có thứ tự gồm các phần tử như dưới đây. Bây giờ chúng ta sử dụng giải thuật sắp xếp nổi bọt để sắp xếp mảng này.</h5>
+					<h5>Ví dụ như bài toán sắp xếp dãy a thành dãy không giảm với: a =[4,3,1,5,7,9,6,2]</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort1.png" >
+					</div>
+					<h5>Để minh họa chúng ta sẽ dùng những phần tử màu xanh để chỉ những phần tử đã được sắp xếp đúng vị trí. phần tử màu nâu đề chỉ phần tử đang nhỏ nhất trong đoạn còn lại.</h5>
+					<h5>Ban đầu ta sẽ khởi tạo dãy con bằng a[0], đương nhiên với dãy con một phần tử thì nó đã được sắp xếp</h5>
+					<h5>Ta bắt đầu xét từ phần tử có chỉ số <i style="color: red">0</i> đến <i style="color: red">n-1</i>.</h5>
+					<h5>Đầu tiên ta tìm phần tử nhỏ nhất trong dãy trong khoảng từ 0 đến 7. Sau đó hoán đổi cho phần tử <i style="color: red">a[0]</i>.</h5>
+					<div class="w3-center">
+						<img  src="../img/sesort/sesort2.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort3.png">
+					</div>
+					<h5>Tiếp theo tìm phần tử nhỏ nhất trong dãy trong khoảng từ 1 đến 7. Sau đó hoán đổi cho phần tử <i style="color: red">a[1]</i>.</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort4.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort5.png">
+					</div>
+					<h5>Tiếp theo tìm phần tử nhỏ nhất trong dãy trong khoảng từ 2 đến 7. Sau đó hoán đổi cho phần tử <i style="color: red">a[2]</i>.</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort6.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort7.png">
+					</div>
+					<h5>Tiếp theo tìm phần tử nhỏ nhất trong dãy trong khoảng từ 3 đến 7. Sau đó hoán đổi cho phần tử <i style="color: red">a[3]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort8.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort9.png">
+					</div>
+					<h5>Tiếp theo tìm phần tử nhỏ nhất trong dãy trong khoảng từ 4 đến 7. Sau đó hoán đổi cho phần tử <i style="color: red">a[4]</i>..</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort10.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort11.png">
+					</div>
+					<h5>Tiếp theo tìm phần tử nhỏ nhất trong dãy trong khoảng từ 5 đến 7. Sau đó hoán đổi cho phần tử <i style="color: red">a[5]</i>.</h5>
+					<!-- <div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort12.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort13.png">
+					</div> -->
+					<h5>Tiếp theo tìm phần tử nhỏ nhất trong dãy trong khoảng từ 6 đến 7. Sau đó hoán đổi cho phần tử <i><mark style="background-color: #DCDCDC">a[6]</mark></i></h5>
+					<!-- <div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort14.png">
+					</div>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort15.png">
+					</div> -->
+					<h5>Còn 1 phần tử cuối cùng chắc chắn đã ở vị trí đúng.</h5>
+					<h5>Code mẫu bằng ngôn ngữ C++</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/sesort/sesort16.png">
+					</div>
+
+			</div>
+		</div>
+	</div>
+		
+	<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

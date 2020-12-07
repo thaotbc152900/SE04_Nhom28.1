@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DSA-Sorting</title>
+	<title>DSA-Bubble Sort</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,7 +13,7 @@
 	</style>
 </head>
 <body>
-	<div class="w3-top">
+	<div class="row w3-top">
 		<div class="w3-bar w3-card" style="background: #B0C4DE">
 			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
 			<a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button w3-padding-large">Bubble Sort</a>
@@ -32,11 +32,16 @@
 		    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
 		</div>
 	</div>
-	<div class="w3-left">
-		<div id="actions" class="panel">
-		<a href="sort.html">Demo</a>	
-		</div>
-	</div>
+	<!-- <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" style="z-index:3;width:250px;" id="mySidebar">
+	  	<a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"></a>
+	  	<a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
+	  	<a class="w3-bar-item w3-button w3-teal" href="#">Home</a>
+	  	<a class="w3-bar-item w3-button" href="#">Link 1</a>
+	  	<a class="w3-bar-item w3-button" href="#">Link 2</a>
+	  	<a class="w3-bar-item w3-button" href="#">Link 3</a>
+	  	<a class="w3-bar-item w3-button" href="#">Link 4</a>
+	  	<a class="w3-bar-item w3-button" href="#">Link 5</a>
+  	</nav> -->
 	<div class="w3-content w3-display-container">
 		<div class="mySlides">
 			<div class="w3-content w3-container w3-padding-64" id="bubblesort">
@@ -115,6 +120,16 @@
 		  }
 		  x[slideIndex-1].style.display = "block";  
 		}
+		function w3_open() {
+		  document.getElementById("mySidebar").style.display = "block";
+		  document.getElementById("myOverlay").style.display = "block";
+		}
+
+		function w3_close() {
+		  document.getElementById("mySidebar").style.display = "none";
+		  document.getElementById("myOverlay").style.display = "none";
+		}
+
 	</script>
 </body>
 </html>

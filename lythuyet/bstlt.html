@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Binary Search Tree</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top" >
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<p>Cấu trúc dữ liệu cây</p>
+		</div>
+	</div>
+	<!-- <div class="w3-content w3-container w3-padding-64" > -->
+		<!-- <div class="w3-left">
+		<div class="w3-bar w3-black w3-card">
+    		<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+    	</div>
+    	</div> -->
+    <!-- </div> -->
+	<div class="w3-content w3-display-container">
+		<div class="w3-content w3-container w3-padding-64" >
+		<h2 class="w3-center" style="color: orange" ><b>Cấu trúc dữ liệu cây là gì?</b></h2>
+		<h5>Cấu trúc dữ liệu cây biểu diễn các nút (node) được kết nối bởi các cạnh. Chúng ta sẽ tìm hiểu về Cây nhị phân (Binary Tree) và Cây tìm kiếm nhị phân (Binary Search Tree) trong phần này.</h5>
+
+		<h5>Cây nhị phân là một cấu trúc dữ liệu đặc biệt được sử dụng cho mục đích lưu trữ dữ liệu. Một cây nhị phân có một điều kiện đặc biệt là mỗi nút có thể có tối đa hai nút con. Một cây nhị phân tận dụng lợi thế của hai kiểu cấu trúc dữ liệu: một mảng đã sắp thứ tự và một danh sách liên kết (Linked List), do đó việc tìm kiếm sẽ nhanh như trong mảng đã sắp thứ tự và các thao tác chèn và xóa cũng sẽ nhanh bằng trong Linked List.</h5>
+		<div class="w3-center">
+			<img src="../img/bstimg/bst1.png">
+		</div>
+
+		<h2 style="color: orange"><strong>Các khái niệm cơ bản về cây nhị phân</strong></h2>
+
+			<h5>Dưới đây là một số khái niệm quan trọng liên quan tới cây nhị phân:</h5>
+			<ul>
+				<h5><li><strong>Đường</strong> : là một dãy các nút cùng với các cạnh của một cây.</li></h5>
+				<h5><li><strong>Nút gốc (Root)</strong> : nút trên cùng của cây được gọi là nút gốc. Một cây sẽ chỉ có một nút gốc và một đường xuất phát từ nút gốc tới bất kỳ nút nào khác. Nút gốc là nút duy nhất không có bất kỳ nút cha nào.</li></h5>
+				<h5><li><strong>Nút cha</strong> : bất kỳ nút nào ngoại trừ nút gốc mà có một cạnh hướng lên một nút khác thì được gọi là nút cha.</li></h5>
+				<h5><li><strong>Nút con</strong> : nút ở dưới một nút đã cho được kết nối bởi cạnh dưới của nó được gọi là nút con của nút đó</li></h5>
+				<h5><li><strong>Nút lá</strong> : nút mà không có bất kỳ nút con nào thì được gọi là nút lá.</li></h5>
+				<h5><li><strong>Cây con</strong> : cây con biểu diễn các con của một nút.</li></h5>
+				<h5><li><strong>Truy cập</strong> : kiểm tra giá trị của một nút khi điều khiển là đang trên một nút đó.</li></h5>
+				<h5><li><strong>Duyệt</strong> : duyệt qua các nút theo một thứ tự nào đó.</li></h5>
+				<h5><li><strong>Bậc</strong> : bậc của một nút biểu diễn số con của một nút. Nếu nút gốc có bậc là 0, thì nút con tiếp theo sẽ có bậc là 1, và nút cháu của nó sẽ có bậc là 2, …</li></h5>
+				<h5><li><strong>Khóa (Key)</strong> : biểu diễn một giá trị của một nút dựa trên những gì mà một thao tác tìm kiếm thực hiện trên nút.</li></h5>
+			</ul>
+		<h5><strong>Biểu diễn cây tìm kiếm nhị phân</strong></h5>
+			<h5>Cây tìm kiếm nhị phân biểu diễn một hành vi đặc biệt. Con bên trái của một nút phải có giá trị nhỏ hơn giá trị của nút cha (của nút con này) và con bên phải của nút phải có giá trị lớn hơn giá trị của nút cha (của nút con này). Hình minh họa:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst2.png">
+			</div>
+			<h5>Khai báo một node trong của cây:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst3.png">
+			</div>
+			<h5>Các hoạt động thêm sửa xóa cũng tương tự như linked list.</h5>
+			<h5>Để thêm phần tử vào cây nhị phân tìm kiếm ta làm như sau:</h5>
+			<ul>
+				<h5><li>Nếu cây đang rỗng, thì chọn luôn phần tử thêm vào làm node gốc.</li><h5>
+				<h5><li>Nếu cây khác rỗng: Nếu data của node lớnhơn phần tử thêm vào, thì gọi hàm đệ quy để thêm phần tử đó và node left và ngược lại.</li><h5>
+			</ul>
+		<h5><b>Duyệt cây</b></h5>
+			<h5>Duyệt cây là một tiến trình để truy cập tất cả các nút của một cây và cũng có thể in các giá trị của các nút này. Bởi vì tất cả các nút được kết nối thông qua các cạnh (hoặc các link), nên chúng ta luôn luôn bắt đầu truy cập từ nút gốc. Do đó, chúng ta không thể truy cập ngẫu nhiên bất kỳ nút nào trong cây. Có ba phương thức mà chúng ta có thể sử dụng để duyệt một cây:</h5>
+			<ul>
+				<li>Duyệt tiền thứ tự (Pre-order Traversal)</li>
+				<li>Duyệt tiền thứ tự (Pre-order Traversal)</li>
+				<li>Duyệt tiền thứ tự (Pre-order Traversal)</li>
+			</ul>
+		<h5><b>Duyệt trung thứ tự( Pre-order Traversal):</b></h5>
+			<h5>Nếu một cây nhị phân được duyệt trung thứ tự, kết quả tạo ra sẽ là các giá trị khóa được sắp xếp theo thứ tự tăng dần.</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst4.png">
+			</div>
+			<h5>Ở hình ví dụ minh họa trên, <b>A</b> là nút gốc. Với phương thức duyệt trung thứ tự, chúng ta bắt đầu từ nút gốc <b>A</b>, di chuyển tới cây con bên trái <b>B</b> của nút gốc. Tại đây, <b>B</b> cũng được duyệt theo cách thức duyệt trung thứ tự. Và tiến trình tiếp tục cho đến khi tất cả các nút đã được truy cập. Kết quả của cách thức duyệt trung thứ tự cho cây trên sẽ là:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst5.png">
+			</div>
+			<h5>Code mẫu việc in cây theo duyệt trung thứ tự là: </h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst6.png">
+			</div>
+		<h5><b>Duyệt tiền thứ tự( In-order Traversal):</b></h5>
+			<h5>Trong cách thức duyệt tiền thứ tự trong cây nhị phân, nút gốc được duyệt đầu tiên, sau đó sẽ duyệt cây con bên trái và cuối cùng sẽ duyệt cây con bên phải.</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst4.png">
+			</div>
+			<h5>Ở hình ví dụ minh họa trên, <b>A</b> là nút gốc. Chúng ta bắt đầu từ <b>A</b>, và theo cách thức duyệt tiền thứ tự, đầu tiên chúng ta truy cập chính nút gốc <b>A</b> này và sau đó di chuyển tới nút con bên trái <b>B</b> của nó. <b>B</b> cũng được duyệt theo cách thức duyệt tiền thứ tự. Và tiến trình tiếp tục cho tới khi tất cả các nút đều đã được truy cập. Kết quả của cách thức duyệt tiền thứ tự cây này sẽ là:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst7.png">
+			</div>
+			<h5>Code mẫu việc in cây theo duyệt tiền thứ tự:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst8.png">
+			</div>
+		<h5><b>Duyệt hậu thứ tự(Post-order Traversal):</b></h5>
+			<h5>Trong cách thức duyệt hậu thứ tự trong cây nhị phân, nút gốc của cây sẽ được truy cập cuối cùng, do đó bạn cần chú ý. Đầu tiên, chúng ta duyệt cây con bên trái, sau đó sẽ duyệt cây con bên phải và cuối cùng là duyệt nút gốc.</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst4.png">
+			</div>
+			<h5>Ở hình ví dụ minh họa trên, <b>A</b> là nút gốc. Chúng ta bắt đầu từ <b>A</b>, và theo cách duyệt hậu thứ tự, đầu tiên chúng ta truy cập cây con bên trái <b>B</b>. <b>B</b> cũng được duyệt theo cách thứ duyệt hậu thứ tự. Và tiến trình sẽ tiếp tục tới khi tất cả các nút đã được truy cập. Kết quả của cách thức duyệt hậu thứ tự của cây con trên sẽ là:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst9.png">
+			</div>
+			<h5>Code mẫu của in cây theo cách duyệt hậu thứ tự:</h5>
+			<div class="w3-center">
+				<img src="../img/bstimg/bst10.png">
+			</div>
+
+	</div>
+
+<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

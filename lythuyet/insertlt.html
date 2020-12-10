@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Insertion Sort</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top">
+		<div class="w3-bar  w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button w3-padding-large">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Insert Sort</a>
+		    <a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Quick Sort</a>
+		</div>
+		<!-- Navbar on small screens -->
+		<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+		    <a href="../lythuyet/sortlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Bubble Sort</a>
+		    <a href="../lythuyet/selectlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Select Sort</a>
+		    <a href="../lythuyet/insertlt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Insert Sort</a>
+			<a href="../lythuyet/mergelt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Merge Sort</a>
+		    <a href="../lythuyet/quicklt.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Quick Sort</a>
+		    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+		</div>
+	</div>
+	<!-- <div class="w3-left">
+		<div id="actions" class="panel">
+		<a href="sort.html">Demo</a>	
+		</div>
+	</div> -->
+	<div class="w3-content w3-display-container">
+		<div class="mySlides">
+			<div class="w3-content w3-container w3-padding-64" id="bubblesort">
+				<h2 class="w3-center" style="color: orange" ><b>Giới thiệu giải thuật sắp xếp chèn (Insertion Sort).</b></h2>
+				<h5><b>Sắp xếp chèn</b> là một giải thuật sắp xếp dựa trên so sánh <b>in-place</b>. Ở đây, một danh sách con luôn luôn được duy trì dưới dạng đã qua sắp xếp. Sắp xếp chèn là <b>chèn</b> thêm một phần tử vào danh sách con <b>đã qua sắp xếp</b>. Phần tử được chèn vào vị trí thích hợp sao cho vẫn đảm bảo rằng danh sách con đó vẫn sắp theo thứ tự.</h5>
+				<h5>Với cấu trúc dữ liệu mảng, chúng ta tưởng tượng là: mảng gồm hai phần: một danh sách con đã được sắp xếp và phần khác là các phần tử không có thứ tự. Giải thuật sắp xếp chèn sẽ thực hiện việc tìm kiếm liên tiếp qua mảng đó, và các phần tử không có thứ tự sẽ được di chuyển và được chèn vào vị trí thích hợp trong danh sách con (của cùng mảng đó).</h5>
+				<h5>Giải thuật này không thích hợp sử dụng với các tập dữ liệu lớn khi độ phức tạp trường hợp xấu nhất và trường hợp trung bình là <b>Ο(n<sup>2</sup>)</b> với n là số phần tử.</h5>
+				<h2 class="w3-center" style="color: orange"><b>Cách hoạt động của giải thuật sắp xếp chèn.</b></h2>
+				<h5>Giả sử chúng ta có một mảng không có thứ tự gồm các phần tử như dưới đây. Bây giờ chúng ta sử dụng giải thuật sắp xếp chèn để sắp xếp mảng này.</h5>
+					<h5>Ví dụ như bài toán sắp xếp dãy a thành dãy không giảm với: </h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort1.png" >
+					</div>
+					<h5>Để minh họa chúng ta sẽ dùng những phần tử màu xanh để chỉ những phần tử trong dãy con. phần tử màu nâu đề chỉ phần tử đang xét vào</h5>
+					<h5>Ban đầu ta sẽ khởi tạo dãy con bằng a[0], đương nhiên với dãy con một phần tử thì nó đã được sắp xếp.</h5>
+					<h5>Ta bắt đầu xét từ phần tử có chỉ số <i style="color: red">1</i>đến <i style="color: red">n-1</i></h5>
+					<div class="w3-center">
+						<img  src="../img/insort/insort2.png">
+					</div>
+					<h5>Sau khi chèn phần tử <i style="color: red">a[1]</i> vào dãy con đã sắp xếp, dãy a sẽ thay đổi như sau. Ta tiếp tục xét phần tử <i style="color: red">a[2]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort3.png">
+					</div>
+					<h5>Sau khi chèn phần tử <i style="color: red">a[2]</i> vào dãy, con đã sắp xếp, dãy a sẽ thay đổi như sau. Ta tiếp tục xét phần tử <i style="color: red">a[3]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort4.png">
+					</div>
+					<h5>Sau khi chèn phần tử <i style="color: red">a[3]</i> vào dãy con đã sắp xếp, dãy a sẽ thay đổi như sau. Ta tiếp tục xét phần tử <i style="color: red">a[4]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort5.png">
+					</div>
+					<h5>Sau khi chèn phần tử <i style="color: red">a[4]</i> vào dãy con đã sắp xếp, dãy a sẽ thay đổi như sau. Ta tiếp tục xét phần tử <i style="color: red">a[5]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort6.png">
+					</div>
+					<h5>Sau khi chèn phần tử <i style="color: red">a[5]</i> vào dãy con đã sắp xếp, dãy a sẽ thay đổi như sau. Ta tiếp tục xét phần tử <i style="color: red">a[6]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort7.png">
+					</div>
+					<h5>Sau khi chèn phần tử <i style="color: red">a[6]</i> vào dãy con đã sắp xếp, dãy a sẽ thay đổi như sau. Ta tiếp tục xét phần tử <i style="color: red">a[7]</i></h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort8.png">
+					</div>
+					<h5>Chèn <i style="color: red">a[7]</i> vào dãy a xong là ta đã hoàn thành quá trình sắp xếp.</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort9.png">
+					</div>
+					<h5>Code mẫu bằng ngôn ngữ C++</h5>
+					<div class="w3-center">
+						<img class="w3-center" src="../img/insort/insort10.png">
+					</div>
+
+			</div>
+		</div>
+	</div>
+		
+	<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

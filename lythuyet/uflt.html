@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Union Find</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top" >
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<p>Cấu trúc dữ liệu Heap</p>
+		</div>
+	</div>
+	<!-- <div class="w3-content w3-container w3-paddCấu trúc dữ liệu Heaping-64" > -->
+		<!-- <div class="w3-left">
+		<div class="w3-bar w3-black w3-card">
+    		<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+    	</div>
+    	</div> -->
+    <!-- </div> -->
+	<div class="w3-content w3-display-container">
+		<div class="w3-content w3-container w3-padding-64" >
+		<h2 class="w3-center" style="color: orange" ><b>Union-Find Disjoint Sets (UFDS)</b></h2>
+		<h5>Cấu trúc dữ liệu Union-Find Disjoint Sets (UFDS) được sử dụng để lập mô hình tập hợp các tập hợp rời rạc, có thể xác định một cách hiệu quả (tức là trong thời gian gần như không đổi) xác định một mục thuộc về tập hợp nào, kiểm tra xem hai mục có thuộc cùng một tập hợp không và kết hợp hai tập hợp rời rạc thành một khi cần thiết. Nó có thể được sử dụng để tìm các thành phần được kết nối trong một biểu đồ vô hướng và do đó có thể được sử dụng như một phần của thuật toán Kruskal cho bài toán Cây kéo dài tối thiểu (MST)</h5>
+		<h5>Mỗi cây đại diện cho một tập hợp rời rạc (do đó một tập hợp các tập hợp rời rạc tạo thành một rừng cây) và rễ của cây là mục đại diện của tập hợp rời rạc này.</h5>
+	</div>
+
+<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

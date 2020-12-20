@@ -9,7 +9,7 @@ $( document ).ready(function() {
 	
 	//tags
 	var sssp = new Array("sssp", "shortest path", "cs2020", "cs2010", "bellman ford", "dijkstra", "single source shortest path");
-	var sorting = new Array("sorting", "cs2020", "cs1020", "array", "list", "data structure");
+	var sorting = new Array("bubble sort", "select sort", "insert sort", "merge sort", "quick sort");
 	var bitmask = new Array("bitmask", "bit manipulation", "cs3233", "cs2020", "cs2010", "array", "list", "data structure", "set");
 	var linked = new Array("linked", "list", "stack", "queue", "cs2020", "cs1020", "array", "data structure");
 	var bst = new Array("bst", "binary search tree", "adelson velskii landis", "avl", "table", "cs2020", "cs2010", "recursion", "recursive", "data structure", "set"); 

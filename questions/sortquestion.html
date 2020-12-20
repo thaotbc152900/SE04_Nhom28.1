@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="This is the formative assessment tool to help Computer Science educators worldwide to &#39;force&#39; basic understanding of various common data structures and algorithms taught in CS courses.">
+<meta name="keywords" content="Online Quiz Training Data Structures Algorithms Formative Assessment">
+ 
+<meta name="csrf-token" content="RwNRZo5AmEKoJH1vzqCwCc93HTH4TNhsI2KCaOl2">
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta property="og:image" content="https://visualgo.net/img/png/training.png">
+<title>VisuAlgo - Training</title>
+<link rel="icon" href="https://visualgo.net/img/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="https://visualgo.net/img/favicon.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="https://visualgo.net/img/favicon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://visualgo.net/img/favicon.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://visualgo.net/img/favicon.png">
+<link rel="stylesheet" type="text/css" href="https://visualgo.net/fonts/silkscreen/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="https://visualgo.net/css/common.css">
+
+<link rel="stylesheet" href="https://visualgo.net/css/jquery.qtip.min.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="https://visualgo.net/css/viz-1.0.1.css">
+<link rel="stylesheet" href="fonts/silkscreen/stylesheet.css">
+<link rel="stylesheet" href="css/test_common.css">
+<link rel="stylesheet" href="css/training.css">
+<link rel="stylesheet" href="css/visual.css">
+<link rel="stylesheet" href="css/drawgraph.css">
+<style>
+#topics-screen { top: 50%; }
+#drawgraph {
+  height: 550px;
+  width: 1000px;
+  margin-left: -500px;
+  margin-top: -275px;
+}
+#clear-topic { width: 150px; }
+#notloggedin {
+  background-color: black;
+  color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  position: fixed;
+  width: 280px;
+  top: 50px;
+  right: 10px;
+  padding: 7px;
+  z-index: 1;
+}
+
+#notloggedin::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: 110px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+</style>
+<script>
+      function changeURL() {
+        var URL = window.location.href.split('/');
+        var val = document.getElementById("Language").value;
+        URL[3] = val;
+        window.location.assign(URL.join('/'));
+      }
+    </script>
+</head>
+<body>
+<div id="top-bar">
+<a href="http://www.comp.nus.edu.sg/~stevenha"><span class="colour" style="border: 1px solid green; border-radius: 25px;">7</span></a>&nbsp;&nbsp;&nbsp;
+<a id="home" href="/">Visu<span class="colour">Algo</span><span style="font-size: 40%">.net</span></a>
+/training
+<span class="right-links" id="useraccount">Login</span>
+</div>
+<div id="dark-overlay"></div>
+<div id="loading-overlay">
+<div id="loading-message" class="overlays">
+<img src="img/loading.gif" alt="Loading... Please Wait...">
+<p>Loading... Please Wait.</p>
+</div>
+</div>
+<div id="topics-screen">
+<div>
+<h1>You can select any subset of modules, difficulty level, number of questions, and time limit.</h1>
+
+<div style="margin-top: -15px; padding-bottom: 6px;">
+<input id="select-all-button" type="button" value="Select All">&nbsp;
+<input id="select-quiz-1-button" type="button" value="CS2010 Quiz 1">&nbsp;
+<input id="select-quiz-2-button" type="button" value="CS2010 Quiz 2">&nbsp;
+<input id="select-cs2040c-button" type="button" value="CS2040/C Quiz">&nbsp;
+<input id="select-it5003-button" type="button" value="IT5003 Quiz">&nbsp;
+<input id="select-clear-button" type="button" value="Clear Selection">
+</div>
+</div>
+<div style="width: 100%; height: 385px;"> 
+<div class="topic quiz-cs2040c quiz-it5003" data-name="LinkedList" title="Linked List"><img id="list" src="img/png/list.png" alt="list"><span class="topictitle">Linked List</span></div>
+<div class="topic" data-name="Recursion" title="Recursion"><img id="recursion" src="img/png/recursion.png" alt="recursion"><span class="topictitle">Recursion</span></div>
+<div class="topic quiz-cs2040c quiz-it5003" data-name="Sorting" title="Sorting"><img id="sorting" src="img/png/sorting.png" alt="sorting"><span class="topictitle">Sorting</span></div>
+<div class="topic quiz-cs2040c" data-name="HashTable" title="Hash Table"><img id="hashtable" src="img/png/hashtable.png" alt="hashtable"><span class="topictitle">Hash Table</span></div>
+<div class="topic quiz-1 quiz-cs2040c quiz-it5003" data-name="Heap" title="Heap"><img id="heap" src="img/png/heap.png" alt="heap"><span class="topictitle">Binary Heap</span></div>
+<div class="topic quiz-1 quiz-cs2040c quiz-it5003" data-name="BST" title="Binary Search Tree"><img id="bst" src="img/png/bst.png" alt="bst"><span class="topictitle">Binary Search Tree</span></div>
+<div class="topic quiz-1 quiz-cs2040c" data-name="AVL" title="AVL Tree"><img id="avl" src="img/avl.png" alt="avl"><span class="topictitle">AVL Tree</span></div>
+<div class="topic quiz-1" data-name="UFDS" title="Union Find Disjoint Sets"><img id="ufds" src="img/png/ufds.png" alt="ufds"><span class="topictitle">UFDS</span></div>
+<div class="topic" data-name="Bitmask" title="Bitmask"><img id="bitmask" src="img/png/bitmask.png" alt="bitmask"><span class="topictitle">Bitmask</span></div>
+<div class="topic quiz-1 quiz-cs2040c quiz-it5003" data-name="Graph Data Structures" title="Graph Data Structures"><img id="graphds" src="img/png/graphds.png" alt="graphds"><span class="topictitle">Graph DS</span></div>
+<div class="topic quiz-2 quiz-cs2040c quiz-it5003" data-name="Graph Traversal" title="Graph Traversal"><img id="dfsbfs" src="img/png/dfsbfs.png" alt="dfsbfs"><span class="topictitle">Graph Traversal</span></div>
+<div class="topic quiz-2" data-name="MST" title="Min Spanning Tree"><img id="mst" src="img/png/mst.png" alt="mst"><span class="topictitle">MST</span></div>
+<div class="topic quiz-2 quiz-cs2040c" data-name="SSSP" title="Single-Source Shortest Path"><img id="sssp" src="img/png/sssp.png" alt="sssp"><span class="topictitle">SSSP</span></div>
+</div>
+<div style="margin-top: 10px; font-weight: bold; font-size: 12px;">
+Name:&nbsp;&nbsp;<input id="takername" placeholder="Write your name"></input>
+Question Difficulty:&nbsp;&nbsp;
+<select id="question-difficulty-ddl" data-name="question-difficulty" style="height: 25px;">
+<option value="Easy">Easy</option>
+<option value="Medium" selected>Medium</option>
+<option value="Hard">Hard</option>
+
+</select>
+&nbsp;&nbsp;No. of Questions:&nbsp;&nbsp;
+<input id="question-amount-input" title="Enter a number [1-20]" style="width: 40px; height: 25px; text-align: center;" type="number" min="1" max="20" step="1" value="7" />
+&nbsp;&nbsp;Time Limit:&nbsp;&nbsp;
+<select id="question-time-limit-ddl" style="height: 25px;">
+<option value=0 selected>No limit</option>
+<option value=300>5 min</option>
+<option value=600>10 min</option>
+<option value=900>15 min</option>
+<option value=1200>20 min</option>
+<option value=1500>25 min</option>
+<option value=1800>30 min</option>
+<option value=2100>35 min</option>
+<option value=2400>40 min</option>
+</select>
+</div>
+<input id="start-training" type="submit" value="Start training!">
+<div id="notloggedin">
+<p>You are missing lots of interesting features if you do not <b>login</b>, including the important customized learning pathway.</p>
+</div>
+</div>
+<div id="test-screen">
+<div id="qn-no"></div>
+<div id="qn-text">
+<p></p>
+<div id="subset"></div>
+<div id="mcq"></div>
+<input class="number-input" style="width: 80px;" type="text" autocomplete="off" title="Enter the numeric value">
+<input id="graph-drawing-input" style="margin-right: 8px;" type="button" value="Draw Graph">
+<input id="undo-ans" type="button" style="margin-right: 8px;" value="Undo" disabled>
+<input id="clear-ans" type="button" value="Clear" disabled>
+<div id="current-selection"></div>
+<div id="ans-key"></div>
+</div>
+<div id="viz"></div>
+<div id="drawgraph" class="overlays">
+<div id="viz"></div>
+</div>
+<div id="info">
+<div id="student-name"></div>
+<div id="time-left"></div>
+<input id="submit-test" type="button" value="Submit Quiz">
+<input id="restart-test" type="button" value="Start A New Session">
+</div>
+<div id="question-nav"></div>
+</div>
+<div id="result-screen">
+<div id="result-name"></div>
+You scored
+<div id="score"></div>
+<input id="goto-answer" type="button" value="Check your answers">
+</div>
+<div id="left-bar"></div>
+<div id="right-bar"></div>
+<div id="bug-report-form" class="overlays"> 
+<h4>Submit A Bug Report</h4>
+<img class="close-overlay" src="img/cross_white.png" alt="X">
+<div class="content">
+<textarea id="bug-report-msg" cols="42" rows="5" style="resize: none;">Write a short message about bug...</textarea>
+<input type="button" value="Submit" style="margin-top: 10px;">
+</div>
+</div>
+<div id="submission-confirmation" class="overlays">
+<div class="content">
+You have not answered all the questions. Are you sure you want to end the quiz?<br>
+<input id="submission-confirmation-yes-btn" type="button" value="Yes" style="margin-top: 10px;">
+<input id="submission-confirmation-no-btn" type="button" value="No" style="margin-top: 10px;">
+</div>
+</div>
+<div id="custom-alert" class="overlays">
+<div class="content"><p></p></div>
+</div>
+<div id="bottom-bar">
+<a id="trigger-about">About</a>
+<a id="trigger-team">Team</a>
+<a id="trigger-terms">Terms of use</a>
+</div>
+<div id="about" class="overlays">
+<h4>About</h4><span class='close-overlay'>&#x2715;</span>
+<div class='content'>
+<p>VisuAlgo was conceptualised in 2011 by Dr Steven Halim as a tool to help his students better understand data structures and algorithms, by allowing them to learn the basics on their own and at their own pace.</p><p>VisuAlgo contains many advanced algorithms that are discussed in Dr Steven Halim&#39;s book (&#39;Competitive Programming&#39;, co-authored with his brother Dr Felix Halim) and beyond. Today, some of these advanced algorithms visualization/animation can only be found in VisuAlgo.</p><p>Though specifically designed for National University of Singapore (NUS) students taking various data structure and algorithm classes (e.g. CS1010, CS1020, CS2010, CS2020, CS3230, and CS3230), as advocators of online learning, we hope that curious minds around the world will find these visualisations useful too.</p><p>VisuAlgo is not designed to work well on small touch screens (e.g. smartphones) from the outset due to the need to cater for many complex algorithm visualizations that require lots of pixels and click-and-drag gestures for interaction. The minimum screen resolution for a respectable user experience is 1024x768 and only the landing page is relatively mobile-friendly.</p><p>VisuAlgo is an ongoing project and more complex visualisations are still being developed.</p><p>The most exciting development is the automated question generator and verifier (the online quiz system) that allows students to test their knowledge of basic data structures and algorithms. The questions are randomly generated via some rules and students&#39; answers are instantly and automatically graded upon submission to our grading server. This online quiz system, when it is adopted by more CS instructors worldwide, should technically eliminate manual basic data structure and algorithm questions from typical Computer Science examinations in many Universities. By setting a small (but non-zero) weightage on passing the online quiz, a CS instructor can (significantly) increase his/her students mastery on these basic questions as the students have virtually infinite number of training questions that can be verified instantly before they take the online quiz. The training mode currently contains questions for 12 visualization modules. We will soon add the remaining 8 visualization modules so that every visualization module in VisuAlgo have online quiz component.</p><p>Another active branch of development is the internationalization sub-project of VisuAlgo. We want to prepare a database of CS terminologies for all English text that ever appear in VisuAlgo system. This is a big task and requires crowdsourcing. Once the system is ready, we will invite VisuAlgo visitors to contribute, especially if you are not a native English speaker. Currently, we have also written public notes about VisuAlgo in various languages:
+<a href="https://weibo.com/p/230418436e9ee80102v4rk" target='_blank'><u>zh</u></a>, <a href='https://www.facebook.com/notes/steven-halim/httpidvisualgonet-visualisasi-struktur-data-dan-algoritma-dengan-animasi/10153236934439689' target='_blank'><u>id</u></a>, <a href="https://blog.naver.com/visualgo_nus" target='_blank'><u>kr</u></a>, <a href='https://www.facebook.com/groups/163215593699283/permalink/824003417620494/' target='_blank'><u>vn</u></a>, <a href='http://pantip.com/topic/32736343' target='_blank'><u>th</u></a>.</p>
+</div>
+</div>
+<div id="team" class="overlays">
+<h4>Team</h4><span class='close-overlay'>&#x2715;</span>
+<div class='content'>
+<p>
+<strong><span style='line-height: 150%;'>Project Leader &amp; Advisor (Jul 2011-present)</span></strong><br>
+<a href='http://www.comp.nus.edu.sg/~stevenha/' target='_blank'>Dr Steven Halim</a>, Senior Lecturer, School of Computing (SoC), National University of Singapore (NUS)<br>
+<a href='http://felix-halim.net/' target='_blank'>Dr Felix Halim</a>, Software Engineer, Google (Mountain View)
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Undergraduate Student Researchers 1 (Jul 2011-Apr 2012)</span></strong><br>
+Koh Zi Chun, <a href='http://roticv.rantx.com/' target='_blank'>Victor Loh Bo Huai</a>
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Final Year Project/UROP students 1 (Jul 2012-Dec 2013)</span></strong><br>
+Phan Thi Quynh Trang, Peter Phandi, Albert Millardo Tjindradinata, Nguyen Hoang Duy
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Final Year Project/UROP students 2 (Jun 2013-Apr 2014)</span></strong><br>
+<a href='http://www.rosemarietan.com/' target='_blank'>Rose Marie Tan Zhao Yun</a>, Ivan Reinaldo
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Undergraduate Student Researchers 2 (May 2014-Jul 2014)</span></strong><br>
+Jonathan Irvin Gunawan, Nathan Azaria, Ian Leow Tze Wei, Nguyen Viet Dung, Nguyen Khac Tung, Steven Kester Yuwono, Cao Shengze, Mohan Jishnu
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Final Year Project/UROP students 3 (Jun 2014-Apr 2015)</span></strong><br>
+Erin Teo Yi Ling, Wang Zi
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Final Year Project/UROP students 4 (Jun 2016-Dec 2017)</span></strong><br>
+Truong Ngoc Khanh, John Kevin Tjahjadi, Gabriella Michelle, Muhammad Rais Fathin Mudzakir
+</p>
+<p>
+List of translators who have contributed &ge;100 translations can be found at <a href="https://visualgo.net/statistics">statistics</a> page.
+</p>
+<p>
+<strong><span style='line-height: 150%;'>Acknowledgements</span></strong><br>
+This project is made possible by the generous <a href="http://www.cdtl.nus.edu.sg/teg/" target="_blank">Teaching Enhancement Grant</a> from NUS Centre for Development of Teaching and Learning (CDTL).
+</p>
+</div>
+</div>
+<div id="termsofuse" class="overlays">
+<h4>Terms of use</h4><span class='close-overlay'>&#x2715;</span>
+<div class='content'>
+<p>VisuAlgo is free of charge for Computer Science community on earth. If you like VisuAlgo, the only payment that we ask of you is for you to <b>tell the existence of VisuAlgo to other Computer Science students/instructors</b> that you know =) via Facebook, Twitter, course webpage, blog review, email, etc.</p> <p>If you are a data structure and algorithm <b>student/instructor</b>, you are allowed to use this website directly for your classes. If you take screen shots (videos) from this website, you can use the screen shots (videos) elsewhere as long as you cite the URL of this website (http://visualgo.net) and/or list of publications below as reference. However, you are <b>NOT</b> allowed to download VisuAlgo (client-side) files and <b>host it</b> on your own website as it is <b>plagiarism</b>. As of now, we do <b>NOT</b> allow other people to fork this project and create variants of VisuAlgo. Using the offline copy of (client-side) VisuAlgo for your personal usage is fine.</p> <p>Note that VisuAlgo&#39;s online quiz component is by nature has heavy server-side component and there is no easy way to save the server-side scripts and databases locally. Currently, the general public can only use the &#39;training mode&#39; to access these online quiz system. Currently the &#39;test mode&#39; is a more controlled environment for using these randomly generated questions and automatic verification for a <b>real</b> examination in NUS. Other interested CS instructor should contact Steven if you want to try such &#39;test mode&#39;.</p> <p><strong><span style="line-height: 200%;">List of Publications</span></strong></p> <p>This work has been presented briefly at the CLI Workshop at the ACM ICPC World Finals 2012 (Poland, Warsaw) and at the IOI Conference at IOI 2012 (Sirmione-Montichiari, Italy). You can click <a href="http://www.ioinformatics.org/oi/shtm/INFOL099.shtml" target="_blank">this link</a> to read our 2012 paper about this system (it was not yet called VisuAlgo back in 2012).</p><p>This work is done mostly by my past students. The most recent final reports are here: <a href="fyp/erin-report.pdf" target="_blank">Erin</a>, <a href="fyp/wangzi-report.pdf" target="_blank">Wang Zi</a>, <a href="fyp/rose-report.pdf" target="_blank">Rose</a>, <a href="fyp/ivan-report.pdf" target="_blank">Ivan</a>.</p> <p><strong><span style="line-height: 200%;">Bug Reports or Request for New Features</span></strong></p> <p>VisuAlgo is not a finished project. Dr Steven Halim is still actively improving VisuAlgo. If you are using VisuAlgo and spot a bug in any of our visualization page/online quiz tool or if you want to request for new features, please contact Dr Steven Halim. His contact is the concatenation of his name and add gmail dot com.</p>
+</div>
+</div>
+
+<script src="https://visualgo.net/js/jquery-3.3.1.min.js"></script>
+<script>
+      var PHP_DOMAIN = "";
+
+      // surprise colour!
+      // Referenced to in  home.js and viz.js also
+      var colourArray = ["#52bc69", "#d65775"/*"#ed5a7d"*/, "#2ebbd1", "#d9513c", "#fec515", "#4b65ba", "#ff8a27", "#a7d41e"]; // green, pink, blue, red, yellow, indigo, orange, lime
+
+      function disableScroll() { $('html').css('overflow', 'hidden'); }
+
+      function enableScroll() { $('html').css('overflow', 'visible'); }
+
+      function replaceAll(find, replace, str) { return str.replace(new RegExp(find, 'g'), replace); }
+
+      function getColours() {
+        var generatedColours = new Array();
+        while (generatedColours.length < 4) {
+          var n = (Math.floor(Math.random() * colourArray.length));
+          if ($.inArray(n, generatedColours) == -1)
+            generatedColours.push(n);
+        }
+        return generatedColours;
+      }
+
+      function isOn(value, position) {
+        return (value>>position) & 1 === 1;
+      }
+
+      function customAlert(msg) {
+        $('#custom-alert p').html(msg);
+        var m = -1 * ($('#custom-alert').outerHeight()/2);
+        $('#custom-alert').css('margin-top', m+'px');
+        $('#dark-overlay').fadeIn(function() {
+          $('#custom-alert').fadeIn(function() {
+            setTimeout(function() {
+              $('#custom-alert').fadeOut(function() {
+                $('#dark-overlay').fadeOut();
+              });
+            }, 1000);
+          });
+        });
+      }
+
+      function showLoadingScreen() {
+        $('#loading-overlay').show();
+        $('#loading-message').show();
+      }
+
+      function hideLoadingScreen() {
+        $('#loading-overlay').hide();
+      }
+
+      function commonAction(retval, msg) {
+        //setTimeout(function() {
+          if (retval) { // mode == "exploration" && // now not only for exploration mode, but check if this opens other problems
+            $('#current-action').show();
+            $('#current-action').html(mode == "exploration" ? msg : ("e-Lecture Example (auto play until done)<br>" + msg));
+            $('#progress-bar').slider("option", "max", gw.getTotalIteration()-1);
+            triggerRightPanels();
+            isPlaying = true;
+          }
+        //}, 500);
+      }
+
+      function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split('&');
+        for (var i = 0; i < vars.length; i++) {
+          var pair = vars[i].split('=');
+          if (decodeURIComponent(pair[0]) == variable)
+            return decodeURIComponent(pair[1]);
+        }
+        return "";
+      }
+
+      var generatedColours = getColours();
+      var surpriseColour = colourArray[generatedColours[0]];
+      var colourTheSecond = colourArray[generatedColours[1]];
+      var colourTheThird = colourArray[generatedColours[2]];
+      var colourTheFourth = colourArray[generatedColours[3]];
+
+      $(function() {
+        $('.links').css('background', surpriseColour);
+        $('.right-links').css('background', surpriseColour);
+        $('#login-go').css('background', surpriseColour);
+
+        $('.colour').css("color", surpriseColour); // name
+        $('h4').css("background-color", surpriseColour); // about, contact us etc. button background
+
+        // title
+        $('#title a').click(function() {
+          $('#title a').removeClass('selected-viz');
+          $(this).addClass('selected-viz');
+          // temporary quick fix for Google Chrome Aug 2016 issue...
+          setTimeout(function(){ document.body.style.zoom = "100.1%"; }, 100); // force resize/redraw...
+          setTimeout(function(){ document.body.style.zoom = "100%"; }, 600);
+        });
+
+        // overlays stuffs
+        $('#trigger-about').click(function() {
+          if ($(window).width() > 600) {
+            $('#dark-overlay').fadeIn(function() {
+              $('#about').fadeIn();
+            });
+          }
+          else
+            alert('Sorry, this dialog is too big. Please load it on bigger screen');
+        });
+
+        $('#trigger-team').click(function() {
+          if ($(window).width() > 600) {
+            $('#dark-overlay').fadeIn(function() {
+              $('#team').fadeIn();
+            });
+          }
+          else
+            alert('Sorry, this dialog is too big. Please load it on bigger screen');
+        });
+
+        $('#trigger-terms').click(function() {
+          if ($(window).width() > 600) {
+            $('#dark-overlay').fadeIn(function() {
+              $('#termsofuse').fadeIn();
+            });
+          }
+          else
+            alert('Sorry, this dialog is too big. Please load it on bigger screen');
+        });
+
+        $('.close-overlay').click(function() {
+          $('.overlays').fadeOut(function() {
+            $('#dark-overlay').fadeOut();
+          });
+        });
+
+        $('#dark-overlay').click(function() {
+          $('.overlays').fadeOut();
+          $('#dark-overlay').fadeOut();
+        });
+
+        $.get('/isloggedin', function(data) {
+          var isLoggedIn = data['isloggedin'] == '1';
+          var element;
+          if (isLoggedIn) {
+            // element = '<a onclick="verifyLogout()">Logout</a>';
+            element = '<a href="https://visualgo.net/profile">Profile</a>'; 
+          }
+          else {
+            element = '<a href="https://visualgo.net/login">Login</a>'
+          }
+          $('#useraccount').html(element);
+        });
+      });
+
+      function verifyLogout() {
+        // Steven's remarks: use a better 'confirm' than the default :(
+        var doesLogout = confirm('Are you sure to logout?');
+        if (doesLogout == true) {
+          window.location = "https://visualgo.net/logout";
+        }
+      }
+
+      function checkLogin() {
+        $.get('/checklogin', function(data) {
+          var url = data['url'];
+          window.location.href = '/' + url;
+        });
+      }
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-1566631-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+<script>
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': "RwNRZo5AmEKoJH1vzqCwCc93HTH4TNhsI2KCaOl2"
+  }
+});
+</script>
+
+<script src="https://visualgo.net/js/d3.min.js"></script>
+
+<script src="https://visualgo.net/js/jquery.qtip.min.js"></script>
+
+
+<script src="https://visualgo.net/js/graph_library-1.0.1.min.js"></script>
+<script src="https://visualgo.net/js/test/test_mode_constant.js"></script>
+<script src="https://visualgo.net/js/test/graph_drawing.js"></script>
+<script src="https://visualgo.net/js/test/test_common.js"></script>
+<script src="https://visualgo.net/js/test/trainingmode.js"></script>
+<script src="https://visualgo.net/js/test/answer_interface.js"></script>
+<script src="https://visualgo.net/js/test/question_processing.js"></script>
+
+<script>
+$(function() {
+  appendTooltips();
+  initTrainingStats();
+  setDisabledTrainingModes();
+  var diff = getQueryVariable("diff");
+  if (diff != null && (diff == "Easy" || diff == "Medium" || diff == "Hard")) // how to prevent "Hard" mode to be used by non-logged people
+    $("#question-difficulty-ddl").val(diff);
+  else if (localStorage.diff)
+    $("#question-difficulty-ddl").val(localStorage.diff); // revert to preferred setting
+  else // set to default
+    $("#question-difficulty-ddl").val("Hard"); // default now hard (for NUS VisuAlgo online quizzes) ... previously Medium"); // medium difficulty
+
+  var n = getQueryVariable("n");
+  if (n != null && 1 <= parseInt(n) && parseInt(n) <= 20)
+    $("#question-amount-input").val(parseInt(n));
+  else if (localStorage.n)
+    $("#question-amount-input").val(parseInt(localStorage.n));
+  else // set to default
+    $("#question-amount-input").val(parseInt(7)); // 7 questions
+
+  var tl = getQueryVariable("tl");
+  if (tl != null && 5 <= parseInt(tl) && parseInt(tl) <= 40)
+    $("#question-time-limit-ddl").val(parseInt(tl)*60);
+  else if (localStorage.tl)
+    $("#question-time-limit-ddl").val(parseInt(localStorage.tl)*60);
+  else // set to default
+    $("#question-time-limit-ddl").val(0); // no time limit
+
+// //   // if not logged-in, force these settngs: medium, 7qs, no limit
+//   $("#question-difficulty-ddl").val("Medium");
+//   $("#question-amount-input").val(7);
+//   $("#question-time-limit-ddl").val(0);
+//   $("#notloggedin").delay(15000).fadeOut();
+// 
+  var select = getQueryVariable("module");
+  if (select != null && select.length > 0) {
+    $('#select-clear-button').click();
+
+    // simulate the click
+    if (select.indexOf('list') != -1)      $('#list').click();
+    if (select.indexOf('recursion') != -1) $('#recursion').click();
+    if (select.indexOf('sorting') != -1)   $('#sorting').click();
+    if (select.indexOf('hashtable') != -1) $('#hashtable').click();
+    if (select.indexOf('heap') != -1)      $('#heap').click();
+    if (select.indexOf('bst') != -1)       $('#bst').click();
+    if (select.indexOf('avl') != -1)       $('#avl').click();
+    if (select.indexOf('ufds') != -1)      $('#ufds').click();
+    if (select.indexOf('bitmask') != -1)   $('#bitmask').click();
+    if (select.indexOf('graphds') != -1)   $('#graphds').click();
+    if (select.indexOf('dfsbfs') != -1)    $('#dfsbfs').click();
+    if (select.indexOf('mst') != -1)       $('#mst').click();
+    if (select.indexOf('sssp') != -1)      $('#sssp').click();
+
+    startTraining();
+  }
+});
+
+function isOn(value, position) {
+  return (value>>position) & 1 === 1;
+}
+
+function appendTooltips() {
+  $('.topic').each(function() {
+    var tooltipElement = '<div style="display: none;"> Training mode for ' + $(this).attr('title') + '</div>';
+    $(tooltipElement).insertAfter($(this));
+    $(this).qtip({
+      style: { classes: 'qtip-blue' },
+      content: {
+        title: $(this).attr('title'),
+        text: $(this).next('div')
+      },
+      position: {
+        my: 'bottom center', // Position my top left...
+        at: 'top center', // at the bottom right of...
+      }
+    });
+  });
+
+}
+
+function initTrainingStats() {
+  }
+
+function setDisabledTrainingModes() {
+  var user = ('');
+  var trainingPrerequisites = {};
+  var trainingTopicBits = {};
+
+  trainingTopicBits['LinkedList'] = 0;
+  trainingTopicBits['Recursion'] = 1;
+  trainingTopicBits['Sorting'] = 2;
+  trainingTopicBits['HashTable'] = 3;
+  trainingTopicBits['Heap'] = 4;
+  trainingTopicBits['BST'] = 5;
+  trainingTopicBits['AVL'] = 6;
+  trainingTopicBits['UFDS'] = 7;
+  trainingTopicBits['Bitmask'] = 8;
+  trainingTopicBits['Graph Data Structures'] = 9;
+  trainingTopicBits['Graph Traversal'] = 10;
+  trainingTopicBits['MST'] = 11;
+  trainingTopicBits['SSSP'] = 12;
+
+}
+</script>
+</body>
+</html>

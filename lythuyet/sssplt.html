@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DSA-Binary Heap</title>
+	<title>DSA-Binary Search Tree</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -29,11 +29,11 @@
 	<div class="w3-content w3-display-container">
 		<div class="w3-content w3-container w3-padding-64" >
 		<h2 class="w3-center" style="color: orange" ><b>Cấu trúc dữ liệu Heap là gì?</b></h2>
-		<h5>Cấu trúc dữ liệu Heap là một trường hợp đặc biệt của cấu trúc dữ liệu cây nhị phân cân bằng, trong đó khóa của nút gốc được so sánh với các con của nó và được sắp xếp một cách phù hợp. Nếu α có nút con β thì:</h5>
+		<h5>Cấu trúc dữ liệu Heap là một trường hợp đặc biệt của cấu trúc dữ liệu cây nhị phân cân bằng, trong đó khóa của nút gốc được so sánh với các con của nó và được sắp xếp một cách phù hợp. Nếu α có nút con β thì:
 
-				<h5 class="w3-center"><b>key(α) ≥ key(β)</b></h5>
+				<b>key(α) ≥ key(β)</b>
 
-		<h5>Khi giá trị của nút cha lớn hơn giá trị của nút con, thì thuộc tính này tạo ra một <b>Max Heap</b>. Dựa trên tiêu chí này, một Heap có thể là một trong hai kiểu sau:</h5>
+		Khi giá trị của nút cha lớn hơn giá trị của nút con, thì thuộc tính này tạo ra một <b>Max Heap</b>. Dựa trên tiêu chí này, một Heap có thể là một trong hai kiểu sau:</h5>
 
 		<h5><b>Min-Heap</b>: ở đây giá trị của nút gốc là nhỏ hơn hoặc bằng các giá trị của các nút con.</h5>
 		<div class="w3-center">
@@ -56,9 +56,9 @@
 				<h5><li><strong>Bước 5</strong> : Lặp lại bước 3 và 4 cho tới khi vẫn duy trì thuộc tính của Heap.</li></h5>
 			</ul>
 		<h5><strong>Ghi Chú: </strong> Trong giải thuật xây dựng <b>Min Heap</b>, giá trị của nút cha sẽ là nhỏ hơn giá trị của các nút con</h5>
-		<h5>Để rõ hơn về giải thuật xây dựng <b>Max Heap</b>, chúng ta hãy nhìn vào hình minh họa động dưới đây</h5>
+		<h5>Để rõ hơn về giải thuật xây dựng Max Heap, chúng ta hãy nhìn vào hình minh họa động dưới đây</h5>
 			<div class="w3-center">
-				<img src="../img/heapimg/max_heap_animation.gif">
+				<img src="../img/heapimg/min_heap_animation.gif">
 			</div>
 		<h2 style="color: orange" ><b>Giải thuật xóa trong Max Heap</b></h2>
 			<h5>Hoạt động xóa trong Max (hoặc Min) Heap luôn luôn diễn ra tại nút gốc và để xóa giá trị Lớn nhất (hoặc Nhỏ nhất). Bạn theo dõi giải thuật và hình minh họa động dưới đây để hiểu thêm về giải thuật này.</h5>
@@ -70,7 +70,7 @@
 				<h5><li><strong>Bước 5</strong> : Lặp lại bước 3 và 4 cho tới khi vẫn duy trì thuộc tính của Heap.</li></h5>
 			</ul>
 			<div class="w3-center">
-				<img src="../img/heapimg/max_heap_deletion_animation.gif">
+				<img src="../img/heapimg/min_heap_deletion_animation.gif">
 			</div>
 	</div>
 

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Graph</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top" >
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<a href="#gr"  class="w3-bar-item w3-button w3-padding-large">Graph</a>
+			<a href="#dft" class="w3-bar-item w3-button w3-padding-large">Depth First Traversal</a>
+			<a href="#bfs" class="w3-bar-item w3-button w3-padding-large">Breadth First Search</a>
+		</div>
+	</div>
+	<!-- <div class="w3-content w3-container w3-paddCấu trúc dữ liệu Heaping-64" > -->
+		<!-- <div class="w3-left">
+		<div class="w3-bar w3-black w3-card">
+    		<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+    	</div>
+    	</div> -->
+    <!-- </div> -->
+	<div class="w3-content w3-display-container">
+		<div class="w3-content w3-container w3-padding-64" >
+			<h2 class="w3-center" style="color: orange" id="gr"><b>Cấu trúc dữ liệu Đồ thị là gì?</b></h2>
+			<h5>Một đồ thị (đồ thị) là một dạng biểu diễn hình ảnh của một tập các đối tượng, trong đó các cặp đối tượng được kết nối bởi các link. Các đối tượng được nối liền nhau được biểu diễn bởi các điểm được gọi là <b>các đỉnh (vertices)</b>, và các link mà kết nối các đỉnh với nhau được gọi là <b>các cạnh (edges)</b>.</h5>
+
+			<h5>Nói chung, một đồ thị là một cặp các tập hợp <b>(V, E)</b>, trong đó V là tập các đỉnh và E là tập các cạnh mà kết nối các cặp điểm. Bạn theo dõi đồ thị sau:</h5>
+				<div class="w3-center">
+					<img src="../img/grimg/graph_basics.jpg">
+				</div>
+			<h5>Trong đồ thị trên:</h5>
+			<ul>
+				<h5>V = {a, b, c, d, e}</h5>
+				<h5>E = {ab, ac, bd, cd, de}</h5>
+			</ul>
+		<h2 style="color: orange" ><b>Cấu trúc dữ liệu Đồ thị</b></h2>
+			<h5>Các hình toán học có thể được biểu diễn trong cấu trúc dữ liệu. Chúng ta có thể biểu diễn một hình bởi sử dụng một mảng các đỉnh và một mảng hai chiều của các cạnh. Trước khi tiếp tục, chúng ta tìm hiểu một vài khái niệm quan trọng sau:</h5>
+				<ul>
+				<h5><li><strong>Đỉnh (Vertex)</strong> : Mỗi nút của hình được biểu diễn như là một đỉnh. Trong ví dụ dưới đây, các hình tròn biểu diễn các đỉnh. Do đó, các điểm từ A tới G là các đỉnh. Chúng ta có thể biểu diễn các đỉnh này bởi sử dụng một mảng, trong đó đỉnh A có thể được nhận diện bởi chỉ mục 0, điểm B là chỉ mục 1, … như hình dưới.</li></h5>
+				<h5><li><strong>Cạnh (Edge) </strong> : Cạnh biểu diễn một đường nối hai đỉnh. Trong hình dưới, các đường nối A và B, B và C, … là các cạnh. Chúng ta có thể sử dụng một mảng hai chiều để biểu diễn các cạnh này. Trong ví dụ dưới, AB có thể được biểu diễn như là 1 tại hàng 0; BC là 1 tại hàng 1, cột 2, …
+
+				<h5>Kề nhau: Hai đỉnh là kề nhau nếu chúng được kết nối với nhau thông qua một cạnh. Trong hình dưới, B là kề với A; C là kề với B, …</h5>
+				</li></h5>
+				<h5><li><strong>Đường</strong> : Đường biểu diễn một dãy các cạnh giữa hai đỉnh. Trong hình dưới, ABCD biểu diễn một đường từ A tới D</li></h5>
+				<h5><li><strong>Bước 4</strong> : Nếu giá trị của cha là nhỏ hơn con thì tráo đổi chúng.</li></h5>
+				<h5><li><strong>Bước 5</strong> : Lặp lại bước 3 và 4 cho tới khi vẫn duy trì thuộc tính của Heap.</li></h5>
+			</ul>
+			<div class="w3-center">
+				<img src="../img/grimg/graph.jpg">
+			</div>
+		<h2 style="color: orange" ><b>Các thao tác cơ bản trên cấu trúc dữ liệu đồ thị</b></h2>
+			<ul>
+				<h5><li><strong>Thêm đỉnh:</strong> : Thêm một đỉnh vào trong đồ thị.</li></h5>
+				<h5><li><strong>Thêm cạnh </strong> : Thêm một cạnh vào giữa hai đỉnh của một đồ thị.</li></h5>
+				<h5><li><strong>Hiển thị đỉnh</strong> : Hiển thị một đỉnh của một đồ thị.</li></h5>
+			</ul>
+		<h2 style="color: orange" id="dft"><b>Giải thuật tìm kiếm theo chiều sâu</b></h2>
+			<h5>Giải thuật tìm kiếm theo chiều sâu (Depth First Search – viết tắt là DFS), còn được gọi là giải thuật tìm kiếm ưu tiên chiều sâu, là giải thuật duyệt hoặc tìm kiếm trên một cây hoặc một đồ thị và sử dụng stack (ngăn xếp) để ghi nhớ đỉnh liền kề để bắt đầu việc tìm kiếm khi không gặp được đỉnh liền kề trong bất kỳ vòng lặp nào. Giải thuật tiếp tục cho tới khi gặp được đỉnh cần tìm hoặc tới một nút không có con. Khi đó giải thuật quay lui về đỉnh vừa mới tìm kiếm ở bước trước.</h5>
+				<div class="w3-center">
+					<img src="../img/grimg/depth_first_traversal.jpg">
+				</div>
+			<h5>Trong hình minh họa trên, giải thuật tìm kiếm theo chiều sâu đầu tiên duyệt từ các đỉnh <b>A</b> tới <b>B</b> tới <b>C</b> tới <b>D</b> sau đó tới <b>E</b>, sau đó tới <b>F</b> và cuối cùng tới <b>G</b>. Giải thuật này tuân theo qui tắc sau:</h5>
+			<ul>
+				<h5><li><strong>Qui tắc 1:</strong> : Duyệt tiếp tới đỉnh liền kề mà chưa được duyệt. Đánh dấu đỉnh mà đã được duyệt. Hiển thị đỉnh đó và đẩy vào trong một ngăn xếp (stack).</li></h5>
+				<h5><li><strong>Qui tắc 2</strong> : Nếu không tìm thấy đỉnh liền kề, thì lấy một đỉnh từ trong ngăn xếp (thao tác pop up). (Giải thuật sẽ lấy tất cả các đỉnh từ trong ngăn xếp mà không có các đỉnh liền kề nào)</li></h5>
+				<h5><li><strong>Qui tắc 3</strong> :Lặp lại các qui tắc 1 và qui tắc 2 cho tới khi ngăn xếp là trống</li></h5>
+			</ul>
+			<h5>Bảng dưới đây minh họa các qui tắc với hình ví dụ trên:</h5>
+			<table class="table table-bordered">
+				
+				<thead>
+					<tr>
+						<th class="w3-center">Bước</th>
+						<th class="w3-center">Duyệt</th>
+						<th class="w3-center">Mô tả</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_one.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Khởi tạo ngăn xếp (stack)</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_two.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Đánh dấu đỉnh S là đã duyệt và đặt đỉnh này vào trong ngăn xếp. Tìm kiếm bất kỳ đỉnh liền kề nào mà chưa được duyệt từ đỉnh S. Chúng ta có 3 đỉnh và chúng ta có thể lấy bất kỳ đỉnh nào trong số chúng. Ví dụ, chúng ta lấy đỉnh A theo thứ tự chữ cái.</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_three.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Đánh dấu đỉnh A là đã duyệt và đặt vào trong ngăn xếp. Tìm kiếm bất kỳ đỉnh liền kề nào với đỉnh A. Cả S và D đều là hai đỉnh liền kề A nhưng chúng ta chỉ quan tâm về đỉnh chưa được duyệt.</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_four.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Duyệt đỉnh D, đánh dấu đỉnh này là đã duyệt và đặt vào trong ngăn xếp. Ở đây, chúng ta có B và C là hai đỉnh kề với D và cả hai đều là chưa được duyệt. Chúng ta sẽ chọn theo thứ tự chữ cái một lần nữa.</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_five.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Chọn B, đánh dấu là đã duyệt và đặt vào trong ngăn xếp. Ở đây B không có bất kỳ đỉnh liền kề nào mà chưa được duyệt. Vì thế chúng ta lấy B ra khỏi ngăn xếp.</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_six.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Kiểm tra phần tử trên cùng của ngăn xếp để trở về nút đã duyệt trước đó và kiểm tra xem đỉnh này có đỉnh nào liền kề mà chưa được duyệt hay không. Ở đây, chúng ta tìm thấy đỉnh D nằm ở trên cùng của ngăn xếp.</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/dfs_seven.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Chỉ có một đỉnh liền kề với D mà chưa được duyệt, đó là đỉnh C. Chúng ta duyệt C, đánh dấu là đã duyệt và đặt vào trong ngăn xếp.</td>
+					</tr>
+					
+				</thead>
+			</tbody>
+			</table>
+			<h5>Vì <b>C</b> không có bất kỳ đỉnh nào liền kề mà chưa được duyệt, chúng ta tiếp tục lấy các đỉnh từ trong ngăn xếp để tìm xem có còn bất kỳ đỉnh nào liền kề mà chưa được duyệt hay không. Trong ví dụ này là không có, và chúng ta vẫn tiếp tục cho tới khi ngăn xếp là trống.</h5>
+		<h2 style="color: orange" id="bfs"><b>Giải thuật tìm kiếm theo chiều rộng</b></h2>
+			<h5>Giải thuật tìm kiếm theo chiều rộng (Breadth First Search – viết tắt là BFS) duyệt qua một đồ thị theo chiều rộng và sử dụng hàng đợi (queue) để ghi nhớ đỉnh liền kề để bắt đầu việc tìm kiếm khi không gặp được đỉnh liền kề trong bất kỳ vòng lặp nào.</h5>
+				<div class="w3-center">
+					<img src="../img/grimg/breadth_first_traversal.jpg">
+				</div>
+			<h5>Như trong hình ví dụ trên, giải thuật tìm kiếm theo chiều rộng duyệt từ A tới B tới E tới F sau đó tới C, tới G và cuối cùng tới D. Giải thuật này tuân theo qui tắc:</h5>
+			<ul>
+				<h5><li><strong>Qui tắc 1:</strong> : Duyệt tiếp tới đỉnh liền kề mà chưa được duyệt. Đánh dấu đỉnh mà đã được duyệt. Hiển thị đỉnh đó và đẩy vào trong một hàng đợi (queue)..</li></h5>
+				<h5><li><strong>Qui tắc 2</strong> : Nếu không tìm thấy đỉnh liền kề, thì xóa đỉnh đầu tiên trong hàng đợi.</li></h5>
+				<h5><li><strong>Qui tắc 3</strong> :Lặp lại Qui tắc 1 và 2 cho tới khi hàng đợi là trống.</li></h5>
+			</ul>
+			<h5>Bảng dưới đây minh họa các qui tắc với hình ví dụ trên:</h5>
+
+				<table class="table table-bordered">
+				
+				<thead>
+					<tr>
+						<th class="w3-center">Bước</th>
+						<th class="w3-center">Duyệt</th>
+						<th class="w3-center">Mô tả</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_one.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Khởi tạo hàng đợi (queue)</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_two.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Chúng ta bắt đầu duyệt đỉnh S (đỉnh bắt đầu) và đánh dấu đỉnh này là đã duyệt.</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_three.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Sau đó chúng ta tìm đỉnh liền kề với Smà chưa được duyệt. Trong ví dụ này chúng ta có 3 đỉnh, và theo thứ tự chữ cái chúng ta chọn đỉnh A đánh dấu là đã duyệt và xếp A vào hàng đợi.</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_four.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Tiếp tục duyệt đỉnh liền kề với S là B. Đánh dấu là đã duyệt và xếp đỉnh này vào hàng đợi.</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_five.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Tiếp tục duyệt đỉnh liền kề với S là C. Đánh dấu là đã duyệt và xếp đỉnh này vào hàng đợi.</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_six.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Bây giờ đỉnh S không còn đỉnh nào liền kề mà chưa được duyệt. Bây giờ chúng ta rút A từ hàng đợi.</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>
+							<div class="w3-center">
+								<img src="../img/grimg/bfs_seven.jpg">
+							</div>
+						</td>
+						<td class="w3-center">Từ đỉnh A chúng ta có đỉnh liền kề là D và là đỉnh chưa được duyệt. Đánh dấu đỉnh D là đã duyệt và xếp vào hàng đợi.</td>
+					</tr>
+					
+				</thead>
+			</tbody>
+			</table>
+			<h5>Đến đây, chúng ta thấy rằng không còn đỉnh nào là chưa được đánh dấu (chưa được duyệt với ví dụ trong bảng này). Nhưng giải thuật vẫn tiếp tục, chúng ta vẫn tiếp tục rút các đỉnh từ hàng đợi theo thứ tự để tìm tất cả các đỉnh mà chưa được duyệt. Khi hàng đợi là trống thì đó là lúc kết thúc giải thuật.</h5>
+	</div>
+
+<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+
+</body>
+</html>

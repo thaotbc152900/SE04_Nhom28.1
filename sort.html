@@ -30,19 +30,19 @@
 <body>
 
 <div id="top-bar">
-	<a id="home" href="index.html">D<span class="colour">S</span>A</a>
+    <a id="home" href="index.html">D<span class="colour">S</span>A</a>
     <span id="title">
-    	<a id="title-Sort">Sort</a>&nbsp&nbsp
-    	<a id="title-insort" class="selected-viz">Insertion Sort</a>
-    	<a id="title-sesort" class="selected-viz">Selection Sort</a>
-        <a id="title-bubsort" class="selected-viz">Bubble Sort</a>
+        <a id="title-Sort">Sort</a>&nbsp&nbsp
+        <!-- <a id="title-insort" class="selected-viz">Insertion Sort</a> -->
+        <a id="title-sesort" class="selected-viz">Selection Sort</a>
+        <!-- <a id="title-bubsort" class="selected-viz">Bubble Sort</a> -->
     </span>
     <a id="fb-login" href="#" target="_blank">Facebook connect</a>
     <span id="trick">
-		<fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
+        <fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
     </span>
     <div id="mode-menu">
-    	<div id="mode-button">Exploration Mode<img src="img/arrow_white.png"/></div>
+        <div id="mode-button">Exploration Mode<img src="img/arrow_white.png"/></div>
         <div id="other-modes">
             <a href="#">Tutorial Mode</a>
         </div>
@@ -54,8 +54,8 @@
     <div id="current-action" class="panel"><p></p></div>
     
     <div id="actions" class="panel">
-		<p id="create">Create</p>
-		<p id="sort">Sort</p>
+        <p id="create">Create</p>
+        <p id="sort">Sort</p>
     </div>
     <div id="actions-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide actions panel"/></div>
     
@@ -63,14 +63,14 @@
     <div id="status-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide status panel"/></div>
     
     <div id="codetrace" class="panel">
-    	<!--can add class "highlighed" to hightlight one line-->
-    	<p id="code1" style="padding-top: 10px;"></p>
+        <!--can add class "highlighed" to hightlight one line-->
+        <p id="code1" style="padding-top: 10px;"></p>
         <p id="code2"></p>
         <p id="code3"></p>
-		<p id="code4"></p>
-		<p id="code5"></p>
-		<p id="code6"></p>
-		<p id="code7" style="padding-bottom: 10px;"></p>
+        <p id="code4"></p>
+        <p id="code5"></p>
+        <p id="code6"></p>
+        <p id="code7" style="padding-bottom: 10px;"></p>
     </div>
     <div id="codetrace-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide codetrace panel"/></div>
     
@@ -78,15 +78,15 @@
 <div id="right-bar"></div>
 <!-- Bottom bar and overlay popups -->
 <div id="bottom-bar">
-	<a id="trigger-about">About</a>
+    <a id="trigger-about">About</a>
     <a id="trigger-team">Team</a>
     <a id="trigger-terms">Terms of use</a>
 </div>
 
 <div id="media-controls">
-	<div id="speed-control">slow<div id="speed-input"></div>fast</div>
-	<span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick=goToBeginning()><img src="img/goToBeginning.png" alt="go to beginning" /></span>
-	<span id="previous" class="media-control-button" title="step backward" onclick=stepBackward()><img src="img/prevFrame.png" alt="previous frame" /></span>
+    <div id="speed-control">slow<div id="speed-input"></div>fast</div>
+    <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick=goToBeginning()><img src="img/goToBeginning.png" alt="go to beginning" /></span>
+    <span id="previous" class="media-control-button" title="step backward" onclick=stepBackward()><img src="img/prevFrame.png" alt="previous frame" /></span>
     <span id="pause" class="media-control-button" title="pause" onclick=pause()><img src="img/pause.png" alt="pause" /></span>
     <span id="play" class="media-control-button" title="play" onclick=play()><img src="img/play.png" alt="play" /></span>
     <span id="next" class="media-control-button" title="step forward" onclick=stepForward()><img src="img/nextFrame.png" alt="next frame" /></span>
@@ -101,31 +101,39 @@
 
 <!--tutorial dialogs here-->
 <div id="bst-tutorial-1" class="tutorial-dialog">
-	
+    <p>Sắp xếp là một vấn đề rất cổ điển trong việc sắp xếp lại các mục (có thể được so sánh, ví dụ: số nguyên, số dấu phẩy động, chuỗi, v.v.) của một mảng (hoặc một danh sách) theo một thứ tự nhất định (tăng, không giảm, giảm, không ngày càng tăng, từ vựng, v.v.).</p><br><p>nhiều thuật toán sắp xếp khác nhau, mỗi thuật toán có những ưu điểm và hạn chế riêng.</p><br><p>Sắp xếp thường được sử dụng làm bài toán mở đầu trong các lớp Khoa học Máy tính khác nhau để giới thiệu một loạt các ý tưởng thuật toán.</p>
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-2" class="tutorial-dialog">
-	
+    <b>Giải thuật sắp xếp chọn (Selection Sort)</b> là một giải thuật đơn giản. Giải thuật sắp xếp này là một giải thuật dựa trên việc so sánh <b>in-place</b>, trong đó danh sách được chia thành hai phần, phần được sắp xếp <b>(sorted list)</b> ở bên trái và phần chưa được sắp xếp <b>(unsorted list)</b> ở bên phải. Ban đầu, phần được sắp xếp là trống và phần chưa được sắp xếp là toàn bộ danh sách ban đầu.</h5>
+    <h5>Phần tử nhỏ nhất được lựa chọn từ mảng chưa được sắp xếp và được tráo đổi với phần bên trái nhất và phần tử đó trở thành phần tử của mảng được sắp xếp. Tiến trình này tiếp tục cho tới khi toàn bộ từng phần tử trong mảng chưa được sắp xếp đều được di chuyển sang mảng đã được sắp xếp.</h5>
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-3" class="tutorial-dialog">
+    Tất cả các hoạt động có sẵn trên Binary Search Tree sẽ được hiển thị ở đây. Chọn một hành động và cung cấp thông tin đầu vào cần thiết, và hành động sẽ được làm động trong vùng trực quan hóa.
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-4" class="tutorial-dialog">
-	
+    Xem hình ảnh tại đây!
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-5" class="tutorial-dialog">
+    Khi hành động đang được thực hiện, mỗi bước sẽ được mô tả trong bảng trạng thái
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-6" class="tutorial-dialog">
+    Bạn cũng có thể theo dõi các điểm nổi bật của mã giả để theo dõi thuật toán.
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-7" class="tutorial-dialog">
+    Sử dụng các nút điều khiển để kiểm soát quá trình chạy<br/>
+    <div style="margin-top: 8px;"><strong>Spacebar:</strong> play/pause/replay</div>
+    <strong>Left/right arrows:</strong> step backward/step forward<br/>
+    <strong>-/+:</strong> decrease/increase speed<br/>
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-8" class="tutorial-dialog">
-	Return to "Exploration Mode" to start exploring!
+    Quay trở lại "Exploration Mode" để bắt đầu!
 </div>
 
 <script src="js/graph_library/constant.js"></script>
@@ -137,6 +145,7 @@
 <script src="js/graph_library/GraphVertexWidget.js"></script>
 <script src="js/graph_library/GraphEdgeWidget.js"></script>
 <script src="js/widgets/BstWidget.js"></script>
+<script>
 
 </body>
 </html>

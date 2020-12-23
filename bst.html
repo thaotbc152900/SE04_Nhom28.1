@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Visualizations - Binary Search Tree</title>
+<title>DSA - Binary Search Tree</title>
 
 <!--css-->
 <link rel="stylesheet" href="css/normalize.css">
@@ -31,17 +31,17 @@
 <body>
 
 <div id="top-bar">
-	<a id="home" href="index.html">D<span class="colour">S</span>A</a>
+    <a id="home" href="index.html">D<span class="colour">S</span>A</a>
     <span id="title">
-    	<a id="title-BST">Binary Search Tree</a>&nbsp&nbsp
+        <a id="title-BST">Binary Search Tree</a>&nbsp&nbsp
         <a id="title-AVL" class="selected-viz">AVL Tree</a>
     </span>
     <a id="fb-login" href="#" target="_blank">Facebook connect</a>
     <span id="trick">
-		<fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
+        <fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
     </span>
     <div id="mode-menu">
-    	<div id="mode-button">Exploration Mode<img src="img/arrow_white.png"/></div>
+        <div id="mode-button">Exploration Mode<img src="img/arrow_white.png"/></div>
         <div id="other-modes">
             <a href="#">Tutorial Mode</a>
         </div>
@@ -54,16 +54,16 @@
     
     <div id="actions" class="panel">
         <p id="search">Search</p>
-		<p id="insert">Insert</p>
-		<p id="remove">Remove</p>
+        <p id="insert">Insert</p>
+        <p id="remove">Remove</p>
         <p id="inorder" class="execAction" onclick=inorderTraversal()>In-order Traversal</p>
     </div>
     <div id="actions-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide actions panel"/></div>
     <div id="actions-extras">
     <!--put all the extra action pullouts (input) and error messages here-->
-    	<div id="find-min" class="execAction" style="white-space: nowrap;" onClick=findMin()><p>Find Min</p></div>
+        <div id="find-min" class="execAction" style="white-space: nowrap;" onClick=findMin()><p>Find Min</p></div>
         <div id="find-max" class="execAction" style="white-space: nowrap;" onClick=findMax()><p>Find Max</p></div>
-    	<div id="search-input"><input type="text" id="v-search" title="Enter an integer" autocomplete="off" value=5 /></div>
+        <div id="search-input"><input type="text" id="v-search" title="Enter an integer" autocomplete="off" value=5 /></div>
         <div id="search-go" class="execAction" onclick=searchVertex()><p>GO</p></div>
         <div id="search-err" class="err"></div>
         <div id="insert-input"><input type="text" id="v-insert" title="Enter an integer or comma-separated array of integers" autocomplete="off" value=20 /></div>
@@ -79,14 +79,14 @@
     <div id="status-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide status panel"/></div>
     
     <div id="codetrace" class="panel">
-    	<!--can add class "highlighed" to hightlight one line-->
-    	<p id="code1" style="padding-top: 10px;"></p>
+        <!--can add class "highlighed" to hightlight one line-->
+        <p id="code1" style="padding-top: 10px;"></p>
         <p id="code2"></p>
         <p id="code3"></p>
-		<p id="code4"></p>
-		<p id="code5"></p>
-		<p id="code6"></p>
-		<p id="code7" style="padding-bottom: 10px;"></p>
+        <p id="code4"></p>
+        <p id="code5"></p>
+        <p id="code6"></p>
+        <p id="code7" style="padding-bottom: 10px;"></p>
     </div>
     <div id="codetrace-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide codetrace panel"/></div>
     
@@ -94,15 +94,15 @@
 <div id="right-bar"></div>
 <!-- Bottom bar and overlay popups -->
 <div id="bottom-bar">
-	<a id="trigger-about">About</a>
+    <a id="trigger-about">About</a>
     <a id="trigger-team">Team</a>
     <a id="trigger-terms">Terms of use</a>
 </div>
 
 <div id="media-controls">
-	<div id="speed-control">slow<div id="speed-input"></div>fast</div>
-	<span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick=goToBeginning()><img src="img/goToBeginning.png" alt="go to beginning" /></span>
-	<span id="previous" class="media-control-button" title="step backward" onclick=stepBackward()><img src="img/prevFrame.png" alt="previous frame" /></span>
+    <div id="speed-control">slow<div id="speed-input"></div>fast</div>
+    <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick=goToBeginning()><img src="img/goToBeginning.png" alt="go to beginning" /></span>
+    <span id="previous" class="media-control-button" title="step backward" onclick=stepBackward()><img src="img/prevFrame.png" alt="previous frame" /></span>
     <span id="pause" class="media-control-button" title="pause" onclick=pause()><img src="img/pause.png" alt="pause" /></span>
     <span id="play" class="media-control-button" title="play" onclick=play()><img src="img/play.png" alt="play" /></span>
     <span id="next" class="media-control-button" title="step forward" onclick=stepForward()><img src="img/nextFrame.png" alt="next frame" /></span>
@@ -117,7 +117,7 @@
 
 <!--tutorial dialogs here-->
 <div id="bst-tutorial-1" class="tutorial-dialog">
-	Một cây tìm kiếm nhị phân (Binary Search Tree – viết tắt là BST) là một cây mà trong đó tất cả các nút đều có các đặc điểm sau:
+    Một cây tìm kiếm nhị phân (Binary Search Tree – viết tắt là BST) là một cây mà trong đó tất cả các nút đều có các đặc điểm sau:
 
     Cây con bên trái của một nút có khóa (key) nhỏ hơn hoặc bằng giá trị khóa của nút cha (của cây con này).
 
@@ -125,23 +125,23 @@
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-2" class="tutorial-dialog">
-	Cây AVL (viết tắt của tên các nhà phát minh Adelson, Velski và Landis) là cây tìm kiếm nhị phân có độ cân bằng cao. Cây AVL kiểm tra độ cao của các cây con bên trái và cây con bên phải và bảo đảm rằng hiệu số giữa chúng là không lớn hơn 1. Hiệu số này được gọi là Balance Factor (Nhân tố cân bằng).
+    Cây AVL (viết tắt của tên các nhà phát minh Adelson, Velski và Landis) là cây tìm kiếm nhị phân có độ cân bằng cao. Cây AVL kiểm tra độ cao của các cây con bên trái và cây con bên phải và bảo đảm rằng hiệu số giữa chúng là không lớn hơn 1. Hiệu số này được gọi là Balance Factor (Nhân tố cân bằng).
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-3" class="tutorial-dialog">
-	Tất cả các hoạt động có sẵn trên Binary Search Tree sẽ được hiển thị ở đây. Chọn một hành động và cung cấp thông tin đầu vào cần thiết, và hành động sẽ được làm động trong vùng trực quan hóa.
+    Tất cả các hoạt động có sẵn trên Binary Search Tree sẽ được hiển thị ở đây. Chọn một hành động và cung cấp thông tin đầu vào cần thiết, và hành động sẽ được làm động trong vùng trực quan hóa.
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-4" class="tutorial-dialog">
-	Xem hình ảnh tại đây!
+    Xem hình ảnh tại đây!
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-5" class="tutorial-dialog">
-	Khi hành động đang được thực hiện, mỗi bước sẽ được mô tả trong bảng trạng thái
+    Khi hành động đang được thực hiện, mỗi bước sẽ được mô tả trong bảng trạng thái
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-6" class="tutorial-dialog">
-	Bạn cũng có thể theo dõi các điểm nổi bật của mã giả để theo dõi thuật toán.
+    Bạn cũng có thể theo dõi các điểm nổi bật của mã giả để theo dõi thuật toán.
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-7" class="tutorial-dialog">
@@ -152,7 +152,7 @@
     <div class="tutorial-next">Next<img src="img/arrow_white_right.png"/></div>
 </div>
 <div id="bst-tutorial-8" class="tutorial-dialog">
-	Quay trở lại "Exploration Mode" để bắt đầu!
+    Quay trở lại "Exploration Mode" để bắt đầu!
 </div>
 
 <script src="js/graph_library/constant.js"></script>

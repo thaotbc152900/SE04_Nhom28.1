@@ -6,7 +6,7 @@ html { overflow-y: auto; } /*override common.css*/
 #mode-menu {
 	z-index: 1001;
 	float: right;
-	background: black;
+	background: #282525;
 	font-size: 14px;
 	width: 160px;
 	position: relative;
@@ -21,7 +21,7 @@ html { overflow-y: auto; } /*override common.css*/
 	#other-modes {
 		position: absolute;
 		width: 160px;
-		background: black;
+		background: #708090;
 		display: none;
 	}
 	#other-modes a {
@@ -35,7 +35,7 @@ html { overflow-y: auto; } /*override common.css*/
 	left: 0px;
 	height: 100%;
 	width: 40px;
-	background: black;
+	background: #282525;
 	z-index: -1;
 }
 
@@ -45,7 +45,7 @@ html { overflow-y: auto; } /*override common.css*/
 	right: 0px;
 	height: 100%;
 	width: 40px;
-	background: black;
+	background:#282525;
 	z-index: -2;
 }
 
@@ -181,9 +181,12 @@ html { overflow-y: auto; } /*override common.css*/
 #current-action {
 	bottom: 320px;
 	right: 60px;
-	width: auto;
+	width: 400px;
 	display: none;
-	background: #eee;
+	background: none;
+	overflow: normal;
+	white-space: normal;
+	text-align: right;
 }
 	#current-action p{ color: black; font-weight: bold; font-size: 20px; }
 	
@@ -201,6 +204,10 @@ html { overflow-y: auto; } /*override common.css*/
 		padding-left: 14px;
 		padding-right: 15px;
 	}
+	.action-menu-pullout { display: none; position: fixed; }
+	.action-menu-pullout input { background: black; color: white; }
+	.new-menu-option { margin-left: 3px; }
+	.err { color: red; margin-left: 6px; }
 	
 #status {
 	bottom: 255px;

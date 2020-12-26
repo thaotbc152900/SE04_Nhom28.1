@@ -2,7 +2,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Visualizations - Home</title>
+<title>DSA - Home</title>
 
 <!--css-->
 <link rel="stylesheet" href="css/normalize.css">
@@ -11,12 +11,20 @@
 
 <!--js-->
 <script src="js/external/jquery-1.10.2.js"></script>
+<!-- home.js: truyen du lieu -->
+
 <script src="js/home.js"></script>
+<!-- common.js: xu ly mau sac -->
 <script src="js/common.js"></script>
 
 <!--fonts-->
 <link href="fonts/silkscreen/stylesheet.css" rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -37,18 +45,21 @@
 <!-- end facebook login stuff-->
 
 <div id="top-bar">
-	<a id="home" href="">D<span class="colour">S</span><span class="colour">A</span></a>
+    <a id="home" href="">D<span class="colour">S</span><span class="colour">A</span></a>
     <a id="fb-login" href="#" target="_blank">Facebook connect</a>
     <span id="trick">
-		<fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
+        <fb:login-button show-faces="false" width="200" max-rows="1" style="float: right; margin-top: 9px;"></fb:login-button>
     </span>
 </div>
 
 <h1>CấuTrúc <span class="colour"> Dữ Liệu</span> Và<span class="colour"> Giải Thuật</span></h1>
 <h2>Mô phỏng các cấu trúc dữ liệu và thuật toán thông qua animation</h2>
+
+<!-- Tim kiem theo thuật ngữ -->
+<!-- nếu có sẽ hiện ra thuật toán chứa thuật ngữ đó. Từ khóa tìm kiếm được lấy ra từ mảng truyền vào tương ứng với mỗi thuật toán phân theo id trong home.js  -->
 <form id="searchbar">
-	<input id="search" type="text" autocomplete="off" value="Search..."
-    ><div id="show-filters" title="show/hide filters"><img src="img/arrow_white.png"/></div>
+    <input id="search" type="text" autocomplete="off" value="Search...">
+    <div id="show-filters" title="show/hide filters"><img src="img/arrow_white.png"/></div>
 </form>
 <div id="active-tags"></div>
 <div id="emptySearchMsg">No results were found.</div>
@@ -58,91 +69,122 @@
     <div class="line"></div>
 </div>
 
+
+<!-- home.js: lấy theo mảng truyền vào theo id tương ứng  -->
 <div id="main">
 <ul id="list">
-	
-	<li class="viz" id="sorting">
-    	<div class="li-wrapper">
-            <a class="thumbnail">
-            	<img src="img/sort.gif">
-                <img class="static" src="img/sort.jpg">
+    <li class="viz" id="linked">
+        <div class="li-wrapper">
+            <a class="thumbnail" >
+                <img src="img/linkedlist.gif">
+                <img class="static" src="img/list.jpg">
             </a>
             <div class="info">
-                <h3><a href="sort.html">Sorting</a></h3>
-                <div class="indv-viz-filters"></div>
+                <h3><a href="list.html">Linked List, Stack, Queue</a><div class="w3-right"><a class='links' href="lythuyet/listlt.html">Lecture</a></div></h3>
+                
+                <div class='indv-viz-filters'><!-- hiển thị thuật ngữ trong ứng theo id thuật toán -->
+                </div>
             </div>
         </div>
     </li>
-    
     <li class="viz" id="bst">
-    	<div class="li-wrapper">
+        <div class="li-wrapper">
             <a class="thumbnail" href="bst.html">
-            	<img src="img/bst.gif">
+                <img src="img/bst.gif">
                 <img class="static" src="img/bst.jpg">
             </a>
             <div class="info">
-                <h3><a href="bst.html">Binary Search Tree, AVL Tree</a></h3>
+                <h3><a href="bst.html">Binary Search Tree, AVL Tree</a><div class="w3-right"><a class='links' href="lythuyet/bstlt.html">Lecture</a></div></h3>
                 <div class="indv-viz-filters"></div>
             </div>
         </div>
     </li>
     <li class="viz" id="heap">
-    	<div class="li-wrapper">
+        <div class="li-wrapper">
             <a class="thumbnail" href="heap.html">
-            	<img src="img/heap.gif">
+                <img src="img/heap.gif">
                 <img class="static" src="img/heap.jpg">
             </a>
             <div class="info">
-                <h3><a href="heap.html">Binary Heap</a></h3>
+                <h3><a href="heap.html">Binary Heap</a><div class="w3-right"><a class='links' href="lythuyet/heaplt.html">Lecture</a></div></h3>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    <li class="viz" id="sorting">
+        <div class="li-wrapper">
+            <a class="thumbnail">
+                <img src="img/graphs.gif">
+                <img class="static" src="img/sort.gif">
+            </a>
+            <div class="info">
+                <h3><a href="sort.html">Sorting</a><div class="w3-right"><a class='links' href="lythuyet/sortlt.html">Lecture</a></div></h3>
+
+            <div class='indv-viz-filters'></div>
+        </div>
+    </li>
+    <li class="viz" id="graphs">
+        <div class="li-wrapper">
+            <a class="thumbnail" >
+                <img src="img/graph.gif">
+                <img class="static" src="img/graphs.jpg">
+            </a>
+            <div class="info">
+                <h3><a href="">Graphs</a><div class="w3-right"><a class='links' href="lythuyet/grlt.html">Lecture</a></div></h3>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    <li class="viz" id="mst">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="bst.html">
+                <img src="img/graphs.gif">
+                <img class="static" src="img/mst.gif">
+            </a>
+            <div class="info">
+                <h3><a href="bst.html">Min Spanning Tree</a><div class="w3-right"><a class='links' href="#">Lecture</a></div></h3>
                 <div class="indv-viz-filters"></div>
             </div>
         </div>
     </li>
     <li class="viz" id="union">
-    	<div class="li-wrapper">
+        <div class="li-wrapper">
             <a class="thumbnail" href="ufds.html">
-            	<img src="img/union.gif">
-                <img class="static" src="img/union.jpg">
+                <img src="img/graphs.gif">
+                <img class="static" src="img/union.gif">
             </a>
             <div class="info">
-                <h3><a href="ufds.html">Union Find</a></h3>
-                <div class="indv-viz-filters"></div>
-            </div>
-        </div>
-    </li>
-    <li class="viz" id="linked">
-		<div class="li-wrapper">
-            <a class="thumbnail" >
-            	<img src="img/linkedlist.gif">
-                <img class="static" src="img/list.jpg">
-            </a>
-            <div class="info">
-                <h3><a href="">Linked List, Stack, Queue</a></h3>
-                <div class="indv-viz-filters"></div>
-            </div>
-        </div>
-    </li>
-    <li class="viz" id="graphs">
-    	<div class="li-wrapper">
-            <a class="thumbnail" >
-            	<img src="img/graph.gif">
-                <img class="static" src="img/graphs.jpg">
-            </a>
-            <div class="info">
-                <h3><a href="">Graphs</a></h3>
+                <h3><a href="#">Union Find</a><div class="w3-right"><a class='links' href="#">Lecture</a></div></h3>
                 <div class="indv-viz-filters"></div>
             </div>
         </div>
     </li>
     
-    <li class="viz" id="sssp">
-    	<div class="li-wrapper">
-            <a class="thumbnail" href="sssp.html">
-                <img src="img/sssp.gif">
-                <img class="static" src="img/sssp.jpg">
+    <li class="viz" id="bitmask">
+        <div class="li-wrapper">
+            <a class="thumbnail" >
+                <img src="img/graphs.gif">
+                <img class="static" src="img/bitmask.gif">
             </a>
             <div class="info">
-                <h3><a href="sssp.html">Single-Source Shortest Paths</a></h3>
+                <h3><a href="#">Bitmask</a><div class="w3-right"><a class='links' href="#">Lecture</a></div></h3>
+                <div class='indv-viz-filters'>
+                <!-- <span class='filter'>ngăn xếp</span>
+                <span class='filter'>hàng đợi</span> -->
+                </div>
+            </div>
+        </div>
+    </li>
+    
+    
+    <li class="viz" id="sssp">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="sssp.html">
+                <img src="img/graphs.gif">
+                <img class="static" src="img/sssp.gif">
+            </a>
+            <div class="info">
+                <h3><a href="#">Single-Source Shortest Paths<div class="w3-right"><a class='links' href="#">Lecture</a></div></a>
                 <div class="indv-viz-filters"></div>
             </div>
         </div>
@@ -152,12 +194,12 @@
 </div>
 
 <div id="temp">
-    <p>We are migrating!</p>
-    <a href="http://www.comp.nus.edu.sg/~stevenha/visualization/index.html">Access the old site here!</a>
+    <p>Tranning</p>
+    <a href="questions/sortquestion.html">Click here</a>
 </div>
 
 <div id="bottom-bar">
-	<a id="trigger-about">About</a>
+    <a id="trigger-about">About</a>
     <a id="trigger-team">Team</a>
     <a id="trigger-terms">Terms of use</a>
 </div>

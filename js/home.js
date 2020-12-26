@@ -9,14 +9,14 @@ $( document ).ready(function() {
 	
 	//tags
 	var sssp = new Array("sssp", "shortest path", "cs2020", "cs2010", "bellman ford", "dijkstra", "single source shortest path");
-	var sorting = new Array("sorting", "cs2020", "cs1020", "array", "list", "data structure");
+	var sorting = new Array("sorting","bubble sort","selection sort","insertion sort","merge sort","quick sort", "cs2020", "cs1020", "array", "list", "data structure");
 	var bitmask = new Array("bitmask", "bit manipulation", "cs3233", "cs2020", "cs2010", "array", "list", "data structure", "set");
 	var linked = new Array("linked", "list", "stack", "queue", "cs2020", "cs1020", "array", "data structure");
 	var bst = new Array("bst", "binary search tree", "adelson velskii landis", "avl", "table", "cs2020", "cs2010", "recursion", "recursive", "data structure", "set"); 
 	var heap = new Array("heap", "binary heap", "priority queue", "cs2020", "cs2010", "recursion", "recursive", "data structure");
 	var union = new Array("union", "union find disjoint sets", "ufds", "cs3233", "cs2020", "cs2010", "array", "tree", "set");
-	var graphs = new Array("graphs", "tree");
-	var mst = new Array("mst", "tree", "min", "spanning", "cs2020", "cs2010");
+	var graphs = new Array("graphs", "tree","complete","dag","bipartite");
+	var mst = new Array("mst", "tree", "min","prim","graph", "spanning", "cs2020", "cs2010");
 	
 	var allViz = new Array(sssp, sorting, bitmask, linked, bst, heap, union, graphs, mst);
 	

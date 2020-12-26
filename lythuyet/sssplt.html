@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Binary Search Tree</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top" >
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<p>Cấu trúc dữ liệu Heap</p>
+		</div>
+	</div>
+	<!-- <div class="w3-content w3-container w3-paddCấu trúc dữ liệu Heaping-64" > -->
+		<!-- <div class="w3-left">
+		<div class="w3-bar w3-black w3-card">
+    		<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+    	</div>
+    	</div> -->
+    <!-- </div> -->
+	<div class="w3-content w3-display-container">
+		<div class="w3-content w3-container w3-padding-64" >
+		<h2 class="w3-center" style="color: orange" ><b>Bài Toán tìm đường đi ngắn nhất</b></h2>
+		<h5>Bài toán đường đi ngắn nhất là bài toán tìm đường đi giữa hai đỉnh (hoặc nút) trong đồ thị sao cho tổng trọng số của các cạnh cấu thành của nó là nhỏ nhất.
+
+		<h5>Bài toán tìm đường đi ngắn nhất giữa hai giao điểm trên bản đồ đường có thể được mô hình hóa như một trường hợp đặc biệt của bài toán đường đi ngắn nhất trong đồ thị, trong đó các đỉnh tương ứng với các giao điểm và các cạnh tương ứng với các đoạn đường, mỗi cạnh tương ứng với độ dài của bộ phận.</h5>
+
+		<h2>Định nghĩa</h2>
+		<h5>Vấn đề đường đi ngắn nhất có thể được xác định cho các đồ thị cho dù vô hướng , có hướng hay hỗn hợp . Nó được định nghĩa ở đây cho các đồ thị vô hướng; đối với đồ thị có hướng, định nghĩa về đường đi yêu cầu các đỉnh liên tiếp được nối với nhau bằng một cạnh có hướng thích hợp.</h5>
+		<h5>Hai đỉnh kề nhau khi chúng đều trùng với một cạnh chung.</h5>
+
+	</div>
+
+<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

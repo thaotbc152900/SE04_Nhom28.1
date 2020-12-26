@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DSA-Linked List</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+	body {font-family: "Lato", sans-serif}
+	.mySlides {display: none}
+	</style>
+</head>
+<body>
+	<div class="w3-top" >
+		<div class="w3-bar w3-card" style="background: #B0C4DE">
+			<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+			<a class="w3-bar-item w3-button w3-padding-large">Linked List</a>
+		</div>
+	</div>
+	<!-- <div class="w3-content w3-container w3-paddCấu trúc dữ liệu Heaping-64" > -->
+		<!-- <div class="w3-left">
+		<div class="w3-bar w3-black w3-card">
+    		<a href="../index.html" class="w3-bar-item w3-button w3-padding-large">DSA</a>
+    	</div>
+    	</div> -->
+    <!-- </div> -->
+	<div class="w3-content w3-display-container">
+		<div class="w3-content w3-container w3-padding-64" >
+		<h2 class="w3-center" style="color: orange" ><b>Danh sách liên kết (Linked List)</b></h2>
+		<h5>Một Danh sách liên kết (Linked List) là một dãy các cấu trúc dữ liệu được kết nối với nhau thông qua các liên kết (link). Hiểu một cách đơn giản thì Danh sách liên kết là một cấu trúc dữ liệu bao gồm một nhóm các nút (node) tạo thành một chuỗi. Mỗi nút gồm dữ liệu ở nút đó và tham chiếu đến nút kế tiếp trong chuỗi.</h5>
+
+		<h5>Danh sách liên kết là cấu trúc dữ liệu được sử dụng phổ biến thứ hai sau mảng. Dưới đây là các khái niệm cơ bản liên quan tới Danh sách liên kết:</h5>
+			<ul>
+				<h5><li><strong>Link (liên kết)</strong> : Tmỗi link của một Danh sách liên kết có thể lưu giữ một dữ liệu được gọi là một phần tử.</li></h5>
+				<h5><li><strong>Next</strong> : Mỗi liên kết của một Danh sách liên kết chứa một link tới next link được gọi là Next.</li></h5>
+				<h5><li><strong>First</strong> : một Danh sách liên kết bao gồm các link kết nối tới first link được gọi là First.</li></h5>
+			</ul>
+		<h2 style="color: orange" ><b>Biểu diễn Danh sách liên kết (Linked List)</b></h2>
+			<h5>Danh sách liên kết có thể được biểu diễn như là một chuỗi các nút (node). Mỗi nút sẽ trỏ tới nút kế tiếp.</h5>
+			<div class="w3-center">
+				<img src="../img/linkimg/linked_list.jpg">
+			</div>
+			<h5>Dưới đây là một số điểm cần nhớ về Danh sách liên kết:</h5>
+			<p>Danh sách liên kết chứa một phần tử link thì được gọi là First.</p>
+			<p>Mỗi link mang một trường dữ liệu và một trường link được gọi là Next</p>
+			<p>Mỗi link được liên kết với link kế tiếp bởi sử dụng link kế tiếp của nó.</p>
+			<p>Link cuối cùng mang một link là null để đánh dấu điểm cuối của danh sách</p>
+		<h2 style="color: orange" ><b>Các loại Danh sách liên kết (Linked List)</b></h2>
+		<h5>Các loại Danh sách liên kết (Linked List)</h5>
+			<ul>
+				<h5><li><strong>Danh sách liên kết đơn (Simple Linked List)</strong> : chỉ duyệt các phần tử theo chiều về trước.</li></h5>
+				<h5><li><strong>Danh sách liên kết đôi (Doubly Linked List) </strong> : Các phần tử có thể được duyệt theo chiều về trước hoặc về sau.</li></h5>
+				<h5><li><strong>Danh sách liên kết vòng (Circular Linked List)</strong> : phần tử cuối cùng chứa link của phần tử đầu tiên như là next và phần tử đầu tiên có link tới phần tử cuối cùng như là prev.</li></h5>
+			</ul>
+		<h2 style="color: orange" ><b>Các hoạt động cơ bản trên Danh sách liên kết</b></h2>
+			<h5>Dưới đây là một số hoạt động cơ bản có thể được thực hiện bởi một danh sách liên kết:</h5>
+			<ul>
+				<h5><li><strong>Hoạt động chèn</strong> : cthêm một phần tử vào đầu danh sách liên kết.</li></h5>
+				<h5><li><strong>Hoạt động xóa (phần tử đầu):</strong> : Xóa một phần tử tại đầu danh sách liên kết.</li></h5>
+				<h5><li><strong>Hiển thị</strong> : hiển thị toàn bộ danh sách.</li></h5>
+				<h5><li><strong>Hoạt động tìm kiếm</strong> : tìm kiếm phần tử bởi sử dụng khóa (key) đã cung cấp.</li></h5>
+				<h5><li><strong>Hoạt động xóa (bởi sử dụng khóa)</strong> : xóa một phần tử bởi sử dụng khóa (key) đã cung cấp.</li></h5>
+			</ul>
+		<h2 style="color: orange" ><b>Hoạt động chèn trong Danh sách liên kết</b></h2>
+			<h5>Việc thêm một nút mới vào trong danh sách liên kết không chỉ là một hoạt động thêm đơn giản như trong các cấu trúc dữ liệu khác (bởi vì chúng ta có dữ liệu và có link). Chúng ta sẽ tìm hiểu thông qua sơ đồ dưới đây. Đầu tiên, tạo một nút bởi sử dụng cùng cấu trúc và tìm vị trí để chèn nút này.</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_insertion_0.jpg">
+				</div>
+			<h5>Giả sử chúng ta cần chèn một nút B vào giữa nút A (nút trái) và C (nút phải). Do đó: B.next trỏ tới C.</h5>
+			<i style="color: red">NewNode.next −> RightNode;</i>
+			<h5>Hình minh họa như sau:</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_insertion_1.jpg">
+				</div>
+			<h5>Bây giờ, next của nút bên trái sẽ trở tới nút mới.</h5>
+			<i style="color: red">LeftNode.next −> NewNode;</i>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_insertion_2.jpg">
+				</div>
+			<h5>Quá trình trên sẽ đặt nút mới vào giữa hai nút. Khi đó danh sách mới sẽ trông như sau:</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_insertion_3.jpg">
+				</div>
+			<h5>Các bước tương tự sẽ được thực hiện nếu chèn nút vào đầu danh sách liên kết. Trong khi đặt một nút vào vị trí cuối của danh sách, thìnút thứ hai tính từ nút cuối cùng của danh sách sẽ trỏ tới nút mới và nút mới sẽ trỏ tới NULL.</h5>
+		<h2 style="color: orange" ><b>Hoạt động xóa trong Danh sách liên kết</b></h2>
+			<h5>Hoạt động xóa trong Danh sách liên kết cũng phức tạp hơn trong cấu trúc dữ liệu khác. Đầu tiên chúng ta cần định vị nút cần xóa bởi sử dụng các giải thuật tìm kiếm</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_deletion_0.jpg">
+				</div>
+			<h5>Bây giờ, nút bên trái (prev) của nút cần xóa nên trỏ tới nút kế tiếp (next) của nút cần xóa.</h5>
+			<i style="color: red">LeftNode.next −> TargetNode.next;</i>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_deletion_1.jpg">
+				</div>
+			<h5>Quá trình này sẽ xóa link trỏ tới nút cần xóa. Bây giờ chúng ta sẽ xóa những gì mà nút cần xóa đang trỏ tới.</h5>
+			<i style="color: red">TargetNode.next −> NULL;</i>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_deletion_2.jpg">
+				</div>
+			<h5>Nếu bạn cần sử dụng nút đã bị xóa này thì bạn có thể giữ chúng trong bộ nhớ, nếu không bạn có thể xóa hoàn toàn hẳn nó khỏi bộ nhớ.</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_deletion_3.jpg">
+				</div>
+		<h2 style="color: orange" ><b>Hoạt động đảo ngược trong Danh sách liên kết</b></h2>
+			<h5>Với hoạt động này, bạn cần phải cẩn thận. Chúng ta cần làm cho nút đầu (head) trỏ tới nút cuối cùng và đảo ngược toàn bộ danh sách liên kết</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_reverse_0.jpg">
+				</div>
+			<h5>Đầu tiên, chúng ta duyệt tới phần cuối của danh sách. Nút này sẽ trỏ tới NULL. Bây giờ điều cần làm là làm cho nút cuối này trỏ tới nút phía trước của nó.</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_reverse_1.jpg">
+				</div>
+			<h5>Chúng ta phải đảm bảo rằng nút cuối cùng này sẽ không bị thất lạc, do đó chúng ta sẽ sử dụng một số nút tạm (temp node – giống như các biến tạm trung gian để lưu giữ giá trị). Tiếp theo, chúng ta sẽ làm cho từng nút bên trái sẽ trỏ tới nút trái của chúng.</h5>
+			<i style="color: red">TargetNode.next −> NULL;</i>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_reverse_2.jpg">
+				</div>
+			<h5>Sau đó, nút đầu tiên sau nút head sẽ trỏ tới NULL.</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_reverse_3.jpg">
+				</div>
+			<h5>Chúng ta sẽ làm cho nút head trỏ tới nút đầu tiên mới bởi sử dụng các nút tạm.</h5>
+				<div class="w3-center">
+					<img src="../img/linkimg/linked_list_reverse_4.jpg">
+				</div>
+			<h5>Bây giờ Danh sách liên kết đã bị đảo ngược.</h5>
+	</div>
+
+<script >
+		function toggleFunction() {
+	    var x = document.getElementById("navDemo");
+	    if (x.className.indexOf("w3-show") == -1) {
+	        x.className += " w3-show";
+	    } else {
+	        x.className = x.className.replace(" w3-show", "");
+	    }
+		}
+
+		var slideIndex = 1;
+		showDivs(slideIndex);
+
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+
+		function showDivs(n) {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}
+		  if (n < 1) {slideIndex = x.length}
+		  for (i = 0; i < x.length; i++) {
+		    x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		}
+	</script>
+</body>
+</html>

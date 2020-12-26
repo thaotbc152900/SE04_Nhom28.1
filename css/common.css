@@ -7,7 +7,7 @@ body { background: #eeeeee; font-family: "PT Sans"; font-size: 13px; }
 #top-bar {
 	height: 40px;
 	padding: 0px 30px;
-	background: black;
+	background: #282525;
 	color: white;
 }
 	/*left-side*/
@@ -58,7 +58,7 @@ body { background: #eeeeee; font-family: "PT Sans"; font-size: 13px; }
 	
 #bottom-bar {
 	padding: 12px 30px;
-	background: black;
+	background: #282525;
 	color: white;
 	font-size: 14px;
 	text-align: right;

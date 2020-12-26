@@ -9,9 +9,9 @@ var BST = function(){
 
   var valueRange = [1, 100]; // Range of valid values of BST vertexes allowed
   var maxHeightAllowed = 10;
-
-  var initialArray = [15, 6, 23, 4, 7, 71, 5, 50];
-  var initialAvlArray = [15, 6, 50, 4, 7, 23, 71, 5];
+//mảng ban đầu
+  var initialArray = [16, 6, 29, 8, 9, 60, 5, 50];
+  var initialAvlArray = [16, 6, 50, 8, 9, 29, 60, 5];
 
   /*
    * internalBst: Internal representation of BST in this object
@@ -31,7 +31,8 @@ var BST = function(){
   var internalBst = {};
   var amountVertex = 0;
   internalBst["root"] = null;
-
+// nếu là isAVL sẽ chuyển đến mản initialAvlArray; không sẽ là initialArray
+// Mặc định khi mở lên sẽ là AVL
   if(isAVL) init(initialAvlArray);
   else init(initialArray);
 
@@ -42,52 +43,53 @@ var BST = function(){
   /*
    * @deprecated Use init(initArr)
    */
+   // tạo cây
   function dummyInit(){
-    internalBst["root"] = 15;
-	internalBst[15] = {
+    internalBst["root"] = 16;
+	internalBst[16] = {
       "parent": null,
       "leftChild": 6,
-      "rightChild": 23,
+      "rightChild": 29,
       "vertexClassNumber": 0
     };
 	internalBst[6] = {
-      "parent": 15,
-      "leftChild": 4,
-      "rightChild": 7,
+      "parent": 16,
+      "leftChild": 5,
+      "rightChild": 8,
       "vertexClassNumber": 1
     };
-	internalBst[23] = {
-      "parent": 15,
+	internalBst[29] = {
+      "parent": 16,
       "leftChild": null,
-      "rightChild": 71,
+      "rightChild": 60,
       "vertexClassNumber": 2
     };
-	internalBst[4] = {
+	internalBst[8] = {
       "parent": 6,
       "leftChild": null,
-      "rightChild": 5,
+      "rightChild": 9,
       "vertexClassNumber": 3
     };
-	internalBst[7] = {
-      "parent": 6,
-      "leftChild": null,
+	internalBst[60] = {
+      "parent": 29,
+      "leftChild": 50,
       "rightChild": null,
       "vertexClassNumber": 4
     };
-	internalBst[71] = {
-      "parent": 23,
-      "leftChild": 50,
+	internalBst[9] = {
+      "parent": 8,
+      "leftChild": null,
       "rightChild": null,
       "vertexClassNumber": 5
     };
 	internalBst[5] = {
-      "parent": 4,
+      "parent": 6,
       "leftChild": null,
       "rightChild": null,
       "vertexClassNumber": 6
     };
 	internalBst[50] = {
-      "parent": 71,
+      "parent": 60,
       "leftChild": null,
       "rightChild": null,
       "vertexClassNumber": 7
@@ -136,7 +138,7 @@ var BST = function(){
   this.getIsAVL = function(){
     return isAVL;
   }
-
+// Tìm kiếm
   this.search = function(vertexText){
     var stateList = [];
     var vertexTraversed = {};
@@ -238,7 +240,7 @@ var BST = function(){
     populatePseudocode(4);
     return true;
   }
-
+// Tìm Min
   this.findMin = function(){
     var stateList = [];
     var vertexTraversed = {};
@@ -312,7 +314,7 @@ var BST = function(){
     populatePseudocode(2);
     return true;
   }
-
+// Tìm Max
   this.findMax = function(){
     var stateList = [];
     var vertexTraversed = {};
@@ -386,7 +388,7 @@ var BST = function(){
     populatePseudocode(1);
     return true;
   }
-
+// Tìm kiếm theo giá trị nhập vào
   this.findSuccessor = function(vertexText){
     vertexText = parseInt(vertexText);
 
@@ -582,7 +584,7 @@ var BST = function(){
     populatePseudocode(1);
     return true;
   }
-
+// duyệt trung tự theo thứ tự nút trái,root,nút phải
   this.inorderTraversal = function(){
     var stateList = [];
     var vertexTraversed = {};
@@ -730,7 +732,7 @@ var BST = function(){
     populatePseudocode(3);
     return true;
   }
-
+// chèn vào mảng
   this.insertArr = function(vertexTextArr){
     var stateList = [];
     var vertexTraversed = {};
@@ -1179,7 +1181,7 @@ var BST = function(){
 	}
     return true;
   }
-
+// Xóa phần tử
   this.removeArr = function(vertexTextArr){
     var stateList = [];
     var vertexTraversed = {};

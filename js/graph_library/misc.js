@@ -1,5 +1,5 @@
 /*
- * Miscellaneous functions
+ * Các chức năng khác
  */
 
 function deepCopy(obj){

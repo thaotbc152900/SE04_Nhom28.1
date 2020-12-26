@@ -1,5 +1,5 @@
-// Defines ONE vertex object
-// Set styles in properties.js and the CSS files!!!
+// Xác định MỘT đối tượng đỉnh
+// Đặt kiểu trong các thuộc tính.js và các tệp CSS !!!
 
 var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNumber){
   var self = this;
@@ -10,8 +10,9 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
   var text;
 
   var textYaxisOffset = graphVertexProperties["text"]["font-size"]/3;
-
+  //danh sách thuộc tính
   var attributeList = {
+    //đỉnh bên trong
     "innerVertex": {
       "class": null,
       "cx": null,
@@ -25,7 +26,7 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
       "stroke": null,
       "stroke-width": null
     },
-
+    //đỉnh bên ngoài
     "outerVertex":{
       "class": null,
       "cx": null,
@@ -53,9 +54,9 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     }
   }
 
-  // JS object with IDs of all edges connected to this vertex as the key and boolean as the value
-  // Everytime an edge is added, the value is set to true
-  // Everytime an edge is deleted, the value is set to null
+  // Đối tượng JS có ID của tất cả các cạnh được kết nối với đỉnh này làm khóa và boolean là giá trị
+  // Mỗi khi một cạnh được thêm vào, giá trị được đặt thành true
+  // Mỗi khi một cạnh bị xóa, giá trị được đặt thành null
   var edgeList = {};
 
   init();
@@ -64,20 +65,23 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     draw(duration);
   }
 
-  // Specifies the duration of the animation in milliseconds
-  // If unspecified or illegal value, default duration applies. 
+  // Chỉ định thời lượng của hình ảnh tính bằng mili giây
+
+  // Nếu giá trị không xác định hoặc không hợp pháp, thời lượng mặc định sẽ được áp dụng.
   this.showVertex = function(){
+    // biểu diễn bên ngoài đỉnh
     attributeList["outerVertex"]["r"] = graphVertexProperties["outerVertex"]["r"];
     attributeList["outerVertex"]["width"] = graphVertexProperties["outerVertex"]["width"];
     attributeList["outerVertex"]["height"] = graphVertexProperties["outerVertex"]["height"];
     attributeList["outerVertex"]["stroke-width"] = graphVertexProperties["outerVertex"]["stroke-width"];
-
+    //biểu diễn bên trong đỉnh
     attributeList["innerVertex"]["r"] = graphVertexProperties["innerVertex"]["r"];
     attributeList["innerVertex"]["width"] = graphVertexProperties["innerVertex"]["width"];
     attributeList["innerVertex"]["height"] = graphVertexProperties["innerVertex"]["height"];
     attributeList["innerVertex"]["stroke-width"] = graphVertexProperties["innerVertex"]["stroke-width"];
-
+  // biểu diễn giá trị của đỉnh
     attributeList["text"]["font-size"] = graphVertexProperties["text"]["font-size"];
+
     if (vertexShape == "rect_long") {
       attributeList["outerVertex"]["width"] = 200;  
       attributeList["innerVertex"]["width"] = 198;
@@ -87,7 +91,7 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     }
 
   }
-
+// Ẩn đỉnh: cho mọi giá trị liên quan = 0
   this.hideVertex = function(){
     attributeList["outerVertex"]["r"] = 0;
     attributeList["outerVertex"]["width"] = 0;
@@ -102,6 +106,8 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     attributeList["text"]["font-size"] = 0;
   }
 
+// Di chuyển đỉnh
+// di chuyển theo tọa độ x, y
   this.moveVertex = function(cx, cy){
     attributeList["outerVertex"]["cx"] = cx;
     attributeList["outerVertex"]["cy"] = cy;
@@ -114,10 +120,10 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     attributeList["innerVertex"]["y"] = cy-graphVertexProperties["innerVertex"]["height"]/2;
 
     attributeList["text"]["x"] = cx;
-    attributeList["text"]["y"] = cy + textYaxisOffset;
+    attributeList["text"]["y"] = cy + textYaxisOffset; //var textYaxisOffset = graphVertexProperties["text"]["font-size"]/3;
 
     var key;
-
+  //khi key thuộc danh sách các cạnh,làm mới đường dẫn
     for(key in edgeList){
       edgeList[key].refreshPath();
     }
@@ -127,33 +133,33 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     vertexText = newVertexText;
     attributeList["text"]["text"] = newVertexText;
   }
-
+  // thay đổi kích thước phông chữ
   this.changeTextFontSize = function(newFontSize){
     if(newTextSize == null || isNaN(newTextSize)) return;
     attributeList["text"]["font-size"] = newTextSize;
   }
-
+  //thay đổi bán kính
   this.changeRadius = function(newRadiusInner, newRadiusOuter){
     if(newRadiusInner == null || isNaN(newRadiusInner)) return;
     attributeList["innerVertex"]["r"] = newRadiusInner;
     if(newRadiusOuter == null || isNaN(newRadiusOuter)) return;
     attributeList["outerVertex"]["r"] = newRadiusOuter;
   }
-
+  // thay đổi độ rộng
   this.changeWidth = function(newWidthInner, newWidthOuter){
     if(newWidthInner == null || isNaN(newWidthInner)) return;
     attributeList["innerVertex"]["width"] = newWidthInner;
     if(newWidthOuter == null || isNaN(newWidthOuter)) return;
     attributeList["outerVertex"]["width"] = newWidthOuter;
   }
-
+  // thay đổi chiều cao
   this.changeHeight = function(newHeightInner, newHeightOuter){
     if(newHeightInner == null || isNaN(newHeightInner)) return;
     attributeList["innerVertex"]["height"] = newHeightInner;
     if(newHeightOuter == null || isNaN(newHeightOuter)) return;
     attributeList["outerVertex"]["height"] = newHeightOuter;
   }
-
+  // thay đổi chiều rộng nét vẽ
   this.changeStrokeWidth = function(newStrokeWidthInner, newStrokeWidthOuter){
     if(newStrokeWidthInner == null || isNaN(newStrokeWidthInner)) return;
     attributeList["innerVertex"]["stroke-width"] = newStrokeWidthInner;
@@ -161,8 +167,8 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     attributeList["outerVertex"]["stroke-width"] = newStrokeWidthOuter;
   }
 
-  // Removes the vertex (no animation)
-  // If you want animation, hide & redraw the vertex first, then call this function
+  // Loại bỏ đỉnh (không có chuyển động minh họa)
+  // Nếu bạn muốn hình ảnh minh họa, hãy ẩn và vẽ lại đỉnh trước, sau đó gọi hàm này
   this.removeVertex = function(){
     outerVertex.remove();
     innerVertex.remove();
@@ -235,7 +241,7 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     }
   }
   */
-
+// trạng thái đỉnh
   this.stateVertex = function(stateName){
     var key;
 
@@ -251,7 +257,7 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
       attributeList["text"][key] = graphVertexProperties["text"][stateName][key];
     }
   }
-
+// Lấy thuộc tính
   this.getAttributes = function(){
     return deepCopy(attributeList);
   }
@@ -259,17 +265,17 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
   this.getClassNumber = function(){
     return vertexClassNumber;
   }
-
+// Thêm cạnh
   this.addEdge = function(graphEdge){
     edgeList[graphEdge.getAttributes()["id"]] = graphEdge;
   }
-
+// xóa cạnh
   this.removeEdge = function(graphEdge){
     if(edgeList[graphEdge.getAttributes()["id"]] == null || edgeList[graphEdge.getAttributes()["id"]] == undefined) return;
 
     delete edgeList[graphEdge.getAttributes()["id"]];
   }
-
+  // lấy cạnh
   this.getEdge = function(){
     var reply = [];
     var key;
@@ -285,7 +291,7 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
   //   self.addEdge(new GraphEdgeWidget(self,secondVertex,directed,weight));
   // }
 
-  // Initialize vertex and draw them, but the object will not be visible due to the radius of the vertex circle set to 0
+  // Khởi tạo đỉnh và vẽ chúng, nhưng đối tượng sẽ không hiển thị do bán kính của đường tròn đỉnh được đặt thành 0
   function init(){
     var tmp_vertexShape = vertexShape;
     if (vertexShape == "rect_long") tmp_vertexShape = "rect";
@@ -368,9 +374,9 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
         });
   }
 
-  // Refreshes the vertex image
-  // "dur" specifies the duration of the animation in milliseconds
-  // If unspecified or illegal value, default duration applies. 
+  // Làm mới hình ảnh đỉnh
+  // "dur" chỉ định thời lượng của hoạt ảnh tính bằng mili giây
+  //Nếu giá trị không xác định hoặc không hợp pháp, thời lượng mặc định sẽ được áp dụng.
   function draw(dur){
     if(dur == null || isNaN(dur)) dur = defaultAnimationDuration;
     if(dur <= 0) dur = 1;

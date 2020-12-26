@@ -1,6 +1,6 @@
-// @author  Koh Zi Chun
+
 // Graph Widget. currently in a mess
-// add keyboard shortcut for animation
+// thêm phím tắt cho chuyển động
 
 // Ivan: Most (if not all) functions will be changed to accomodate new library (D3.js)
 //       Only the algorithm & high-level design will be retained
@@ -16,7 +16,11 @@
  *       requiring drawing capabilities to be built on it
  */
 
-
+//vẽ cây
+//vertex: đỉnh
+//edge: cạnh
+//vertexText: giá trị của đỉnh
+//edgeWeight: 
 var vertexSvg = mainSvg.append("g")
                       .attr("id", "vertex");
 
@@ -48,8 +52,8 @@ var GraphWidget = function(){
   //       false means the element will remain hidden until told to appear
   // Duration: duration of the show animation, only used when show is true
 
-  // Adds a CIRCLE vertex
-  // TODO: Merge with addRectVertex
+  // Thêm đỉnh tròn
+  // TODO: Hợp nhất bởi addRectVertex
   this.addVertex = function(cx, cy, vertexText, vertexClassNumber, show){
     if(show != false) show = true;
 
@@ -133,15 +137,14 @@ var GraphWidget = function(){
   }
 
   /* 
-   * stateList: List of JS object containing the states of the objects in the graph
-   * Structure of stateList: List of JS object with the following keys and values:
-   *                            - vl: JS object with vertex ID as keys and corresponding state positions and constants as value
-   *                            - el: JS object with edge ID as keys and corresponding state connections constants as value
+   * stateList: Danh sách đối tượng JS chứa trạng thái của các đối tượng trong biểu đồ
+   *                            - vl: Đối tượng JS với ID đỉnh làm khóa và các vị trí trạng thái tương ứng và hằng số dưới dạng giá trị
+   *                            - el: Đối tượng JS với ID cạnh làm khóa và các hằng số kết nối trạng thái tương ứng dưới dạng giá trị
    *
-   * Objects not present in the i-th iteration stateList will be hidden until the animation stops, where it will be removed
-   * New objects present in the i-th iteration stateList will be automatically created
+   * Các đối tượng không có trong trạng thái lặp thứ i stateList sẽ bị ẩn cho đến khi hoạt ảnh dừng lại, nơi nó sẽ bị xóa
+   * Các đối tượng mới hiện diện trong trạng thái lặp thứ i stateList sẽ được tạo tự động
    *
-   * State 0 should be the initial state, last state should be the end state
+   * Trạng thái 0 phải là trạng thái ban đầu, trạng thái cuối cùng phải là trạng thái kết thúc
    */
 
   /*

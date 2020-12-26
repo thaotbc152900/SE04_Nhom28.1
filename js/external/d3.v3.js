@@ -619,6 +619,7 @@ d3 = function() {
   };
   d3.ns = {
     prefix: d3_nsPrefix,
+    // tiêu chuẩn
     qualify: function(name) {
       var i = name.indexOf(":"), prefix = name;
       if (i >= 0) {
@@ -631,6 +632,8 @@ d3 = function() {
       } : name;
     }
   };
+
+  // lựa chọn nguyên mẫu :tên và giá trị
   d3_selectionPrototype.attr = function(name, value) {
     if (arguments.length < 2) {
       if (typeof name === "string") {
@@ -787,6 +790,7 @@ d3 = function() {
       this.innerHTML = value;
     }) : this.node().innerHTML;
   };
+
   d3_selectionPrototype.append = function(name) {
     name = d3.ns.qualify(name);
     function append() {
@@ -797,6 +801,7 @@ d3 = function() {
     }
     return this.select(name.local ? appendNS : append);
   };
+
   d3_selectionPrototype.insert = function(name, before) {
     name = d3.ns.qualify(name);
     if (typeof before !== "function") before = d3_selection_selector(before);
@@ -2697,6 +2702,8 @@ d3 = function() {
       function isLeft(a, b, c) {
         return (b[0] - a[0]) * (c[1] - a[1]) - (c[0] - a[0]) * (b[1] - a[1]);
       }
+
+      // nội suy: từ ...đến,hướng
       function interpolate(from, to, direction, listener) {
         var a = 0, a1 = 0;
         if (from == null || (a = corner(from, direction)) !== (a1 = corner(to, direction)) || comparePoints(from, to) < 0 ^ direction > 0) {
@@ -7309,6 +7316,8 @@ d3 = function() {
       node.__transition__[id].delay = value;
     }));
   };
+
+  // thời hạn chuyển tiếp mặc định 
   d3_transitionPrototype.duration = function(value) {
     var id = this.id;
     return d3_selection_each(this, typeof value === "function" ? function(node, i, j) {

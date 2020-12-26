@@ -1,15 +1,15 @@
-// Defines ONE edge object
-// Direction of edge is a -> b
-// Set styles in properties.js and the CSS files!!!
+// Xác định MỘT đối tượng cạnh
+// Hướng của cạnh là a -> b
+// Đặt kiểu trong các thuộc tính.js và các tệp CSS !!!
 
 /*
- * Constants for "type":
- * EDGE_TYPE_UDE = UnDirected Edge
- * EDGE_TYPE_DE = Directed Edge
- * EDGE_TYPE_BDE = BiDirectional Edge
+ * Hằng số cho "loại":
+  * EDGE_TYPE_UDE = Cạnh không định hướng
+  * EDGE_TYPE_DE = Cạnh hướng
+  * EDGE_TYPE_BDE = Cạnh hai chiều
  */
 
-// Marker objects
+// Đối tượng đánh dấu
 
 markerSvg.append("marker")
           .attr("id", "arrow")
@@ -33,8 +33,8 @@ markerSvg.append("marker")
               .attr("d", "M0,-5 L-10,0 L0,5")
               .attr('fill', ARROW_FILL);
 
-// GraphEdgeWidget object
-// TODO: Better implementation of edge weight
+// Đối tượng GraphEdgeWidget
+// VIỆC CẦN LÀM: Triển khai tốt hơn trọng số cạnh
 
 var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, weight){
   if(weight == null || isNaN(weight)) weight = 1;
@@ -43,10 +43,10 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
 
   var defaultAnimationDuration = 250; // millisecond
 
-  var line;
+  var line;//đưòng nối
   var weightText;
   var weightTextPath;
-  var weightTextSpan
+  var weightTextSpan;
 
   // var vertexA = graphVertexA.getClassNumber();
   // var vertexB = graphVertexB.getClassNumber();
@@ -112,21 +112,21 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
             draw(0);
           })
   }
-
+// hiển thị các cạnh
   this.showEdge = function(){
     attributeList["path"]["d"] = lineCommand;
     attributeList["path"]["stroke-width"] = graphEdgeProperties["path"]["stroke-width"];
   }
-
+// ẩn bớt cạnh
   this.hideEdge = function(){
     // attributeList["path"]["stroke-width"] = 0;
     attributeList["path"]["d"] = initCommand;
   }
-
+// hiển thị trọng số
   this.showWeight = function(){
     attributeList["weight"]["font-size"] = graphEdgeProperties["weight"]["font-size"];
   }
-
+?ẩn trọng số
   this.hideWeight = function(){
     attributeList["weight"]["font-size"] = 0;
   }
@@ -182,8 +182,8 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
     }
   }
 
-  // Removes the edge (no animation)
-  // If you want animation, hide & redraw the edge first, then call this function
+  // Loại bỏ cạnh (không có hoạt ảnh)
+   // Nếu bạn muốn hoạt ảnh, hãy ẩn & vẽ lại cạnh trước, sau đó gọi hàm này
   this.removeEdge = function(){
     graphVertexA.removeEdge(self);
     graphVertexB.removeEdge(self);
@@ -191,7 +191,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
     line.remove();
     weightText.remove();
   }
-
+// biểu diễn lại đường dẫn
   this.refreshPath = function(){
     var tempInit = initCommand;
 
@@ -200,7 +200,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
     if(attributeList["path"]["d"] == tempInit) attributeList["path"]["d"] = initCommand;
     else attributeList["path"]["d"] = lineCommand;
   }
-
+// thay đổi đỉnh A
   this.changeVertexA = function(newGraphVertexA){
     var edgeDrawn = false;
 
@@ -221,7 +221,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
 
     if(edgeDrawn) attributeList["path"]["d"] = lineCommand;
   }
-
+// thay đổi đỉnh B
   this.changeVertexB = function(newGraphVertexB){
     var edgeDrawn = false;
 
@@ -242,7 +242,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
 
     if(edgeDrawn) attributeList["path"]["d"] = lineCommand;
   }
-
+// thay đổi kiểu 
   this.changeType = function(newType){
     type = newType;
 
@@ -260,25 +260,25 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
         break;
     }
   }
-
+// thay đổi trọng số
   this.changeWeight = function(newWeight){
     weight = newWeight;
     attributeList["weight"]["text"] = weight;
   }
-
+// lấy đỉnh
   this.getVertex = function(){
     return [graphVertexA, graphVertexB];
   }
-
+// lấy thuộc tính
   this.getAttributes = function(){
     return deepCopy(attributeList["path"]);
   }
-
+//trả lại loại cạnh 
   this.getType = function(){
     return type;
   }
 
-  // Helper Functions
+  // Chức năng của người trợ giúp
 
   function init(){
     attributeList["path"]["id"] = "e" + edgeIdNumber;
@@ -344,37 +344,38 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
                                     return attributeList["weight"]["text"];
                                   });
   }
-
+// thay đổi tọa độ x của đỉnh A
   function cxA(){
     if (graphVertexA)
       return parseFloat(graphVertexA.getAttributes()["outerVertex"]["cx"]);
   }
-
+// thay đổi tọa độ y của đỉnh A
   function cyA(){
     if (graphVertexA)
       return parseFloat(graphVertexA.getAttributes()["outerVertex"]["cy"]);
   }
-
+// thay đổi bán kính đỉnh A
   function rA(){
     if (graphVertexA)
       return parseFloat(graphVertexA.getAttributes()["outerVertex"]["r"]);
   }
-
+// thay đổi tọa độ x của đỉnh b
   function cxB(){
     if (graphVertexA)
       return parseFloat(graphVertexB.getAttributes()["outerVertex"]["cx"]);
   }
-
+// thay đổi tọa độ y của đỉnh B
   function cyB(){
     if (graphVertexA)
       return parseFloat(graphVertexB.getAttributes()["outerVertex"]["cy"]);
   }
-
+// thay đổi bán kính đỉnh A
   function rB(){
     if (graphVertexA)
       return parseFloat(graphVertexB.getAttributes()["outerVertex"]["r"]);
   }
 
+// tính toán đường dẫn
   function calculatePath(){
     var x1 = cxA(), y1 = cyA();
     var x2 = cxB(), y2 = cyB();
@@ -398,7 +399,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
   
     return [beginPoint, endPoint];
   }
-  
+  // lấy Điểm giao nhau của đường nối đỉnh
   function getVertexLineIntersectionPoint(x1, y1, x2, y2, r, cx, cy) {
     var baX = x2 - x1; //pointB.x - pointA.x;
     var baY = y2 - y1; //pointB.y - pointA.y;
@@ -433,7 +434,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
     res[3] = r_y2 ;
     return res;
   }
-
+// vẽ cạnh
   function draw(dur){
     if(dur == null || isNaN(dur)) dur = defaultAnimationDuration;
     if(dur <= 0) dur = 1;
@@ -470,7 +471,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
                     return attributeList["weight"]["text"];
                   });
   }
-
+// cập nhật đường dẫn
   function updatePath(){
     lineCommand = edgeGenerator(calculatePath());
     initCommand = edgeGenerator([calculatePath()[0],calculatePath()[0]]);

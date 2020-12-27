@@ -46,7 +46,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
   var line;//đưòng nối
   var weightText;
   var weightTextPath;
-  var weightTextSpan;
+  var weightTextSpan
 
   // var vertexA = graphVertexA.getClassNumber();
   // var vertexB = graphVertexB.getClassNumber();

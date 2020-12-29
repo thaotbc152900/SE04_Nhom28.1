@@ -138,6 +138,7 @@ var BST = function(){
   this.getIsAVL = function(){
     return isAVL;
   }
+  // hiển thị trên panel1
 // Tìm kiếm
   this.search = function(vertexText){
     var stateList = [];
@@ -821,7 +822,7 @@ var BST = function(){
         return false;
       }
     }
-
+// kiểm tra chiều cao của cây để đảm bảo tính chất của cây thăng bằng
     function checkNewHeight(){
       var parentVertex = tempInternalBst["root"];
       var heightCounter = 0;
@@ -1182,6 +1183,7 @@ var BST = function(){
     return true;
   }
 // Xóa phần tử
+// theo tính chất: không có con, 1 con trái/phải; có 2 con
   this.removeArr = function(vertexTextArr){
     var stateList = [];
     var vertexTraversed = {};
@@ -1267,7 +1269,7 @@ var BST = function(){
         stateList.push(currentState);
       }
 
-      // Vertex is not inside the tree
+      // không thuộc cây
       else{
         currentState = createState(internalBst);
         currentState["status"] = "Node " + vertexText + " is not in the BST";
@@ -1278,7 +1280,7 @@ var BST = function(){
 
       // Vertex found; begin deletion
 
-      // Case 1: no child
+      // Case 1: Không có con
 
       if(internalBst[currentVertex]["leftChild"] == null && internalBst[currentVertex]["rightChild"] == null){
         currentState = createState(internalBst, vertexTraversed, edgeTraversed);
@@ -1317,10 +1319,9 @@ var BST = function(){
         vertexCheckBf = parentVertex;
       }
 
-      // Case 2: One child
+      // Case 2: có 1 con
 
-      // Only right child
-
+      // có con phải
       else if(internalBst[currentVertex]["leftChild"] == null){
         currentState = createState(internalBst, vertexTraversed, edgeTraversed);
         currentState["status"] = "Node "+vertexText+" has a right child only";
@@ -1386,8 +1387,7 @@ var BST = function(){
         vertexCheckBf = rightChildVertex;
       }
 
-      // Only left child
-
+      // chỉ có con trái
       else if(internalBst[currentVertex]["rightChild"] == null){
       currentState = createState(internalBst, vertexTraversed, edgeTraversed);
       currentState["status"] = "Node "+vertexText+" has a left child only";
@@ -1453,7 +1453,7 @@ var BST = function(){
         vertexCheckBf = leftChildVertex;
       }
       
-      // Case 3: two children
+      // Case 3: có 2  con
 
       else{
         var parentVertex = internalBst[currentVertex]["parent"];

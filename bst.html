@@ -77,7 +77,8 @@
     
     <div id="status" class="panel"><p></p></div>
     <div id="status-hide" class="panel-hide"><img src="img/arrow_white_right.png" title="show/hide status panel"/></div>
-    
+    <!-- dựa theo id mà bắt sự kiện rồi hiện thị code vòng lặp tương ứng  -->
+    <!-- trong ../widgets/BstWidge.js -->
     <div id="codetrace" class="panel">
         <!--can add class "highlighed" to hightlight one line-->
         <p id="code1" style="padding-top: 10px;"></p>
@@ -93,12 +94,13 @@
 <div id="left-bar"></div>
 <div id="right-bar"></div>
 <!-- Bottom bar and overlay popups -->
+<!-- lấy thông tin trong common.js -->
 <div id="bottom-bar">
     <a id="trigger-about">About</a>
     <a id="trigger-team">Team</a>
     <a id="trigger-terms">Terms of use</a>
 </div>
-
+<!-- media -->
 <div id="media-controls">
     <div id="speed-control">slow<div id="speed-input"></div>fast</div>
     <span id="go-to-beginning" class="media-control-button" title="go to beginning" onclick=goToBeginning()><img src="img/goToBeginning.png" alt="go to beginning" /></span>
@@ -115,7 +117,7 @@
 <div id="team" class="overlays"></div>
 <div id="termsofuse" class="overlays"></div>
 
-<!--tutorial dialogs here-->
+<!--dialog lý thuyết+ hướng dẫn cách dùng-->
 <div id="bst-tutorial-1" class="tutorial-dialog">
     Một cây tìm kiếm nhị phân (Binary Search Tree – viết tắt là BST) là một cây mà trong đó tất cả các nút đều có các đặc điểm sau:
 
@@ -165,14 +167,15 @@
 <script src="js/graph_library/GraphEdgeWidget.js"></script>
 <script src="js/widgets/BstWidget.js"></script>
 
+<!-- tạo đối tượng, xử lý sự kiện -->
 <script type="text/javascript">
     $('#play').hide();
 
-    //this viz-specific code
+    //Khai báo  đối tượng BST()
      var bstWidget = new BST();
      var gw = bstWidget.getGraphWidget();
     
-    //title changing
+    //lựa chọn đối tượng: cây tìm kiếm(BST)/cây thăng bằng(AVL)
     $('#title-BST').click(function() {
         if(isPlaying) { stop(); }
         closeSearch();
@@ -286,7 +289,7 @@
         }, 500);
     }
     
-    //playback controls might fit better in viz.js, but put here in case some viz does not use GraphWidgetNew.js
+    //bắt sự kiện liên quan media
     var isPaused = false;
     function isAtEnd() {
         return (gw.getCurrentIteration()==(gw.getTotalIteration()-1));

@@ -5,9 +5,11 @@ var statusCodetraceWidth = 420;
 var isSearchOpen = false;
 var isInsertOpen = false;
 var isRemoveOpen = false;
-
+// Bắt sự kiện theo Id
+// tìm kiếm
 function openSearch() {
 	if(!isSearchOpen) {
+		// có các sự kiện tìm mã, tìm min, tìm kiếm theo đối truyền vào, thực hiện
 		$('#find-min').animate({
 			width: "+="+65
 		}, 100, function() {
@@ -26,6 +28,7 @@ function openSearch() {
 	}
 	isSearchOpen = true;
 }
+// đóng panel tìm kiếm
 function closeSearch() {
 	if(true) {
 		$('#search-err').html("");
@@ -47,6 +50,7 @@ function closeSearch() {
 		isSearchOpen = false;
 	}
 }
+// tìm kiếm theo đối truyền vào và thực hiện
 function openInsert() {
 	if(!isInsertOpen) {
 		$('#insert-input').animate({
@@ -72,6 +76,7 @@ function closeInsert() {
 		isInsertOpen = false;
 	}
 }
+// xóa theo đối truyền vào  và thực hiện
 function openRemove() {
 	if(!isRemoveOpen) {
 		$('#remove-input').animate({
@@ -97,13 +102,14 @@ function closeRemove() {
 		isRemoveOpen = false;
 	}
 }
+// Ẩn panel
 function hideEntireActionsPanel() {
 	closeSearch();
 	closeInsert();
 	closeRemove();
 	hideActionsPanel();
 }
-
+// bắt 1 sự kiện  sẽ đóng các sự kiện còn lại
 $( document ).ready(function() {
 	
 	//the actions with pullout inputs
@@ -133,7 +139,7 @@ $( document ).ready(function() {
 		closeRemove();
 	});
 	
-	//tutorial mode
+	//chuyển tiếp giữa các tutorial
 	$('#bst-tutorial-2 .tutorial-next').click(function() {
 		showActionsPanel();
 	});

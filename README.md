@@ -1,14 +1,14 @@
 # DSA
 > Mô phỏng các cấu trúc dữ liệu và thuật toán thông qua animation!
 
-## Table of contents
-* [Giới thiệu chung](#giới thiệu chung)
+## Mục lục
+* [Giới thiệu chung](#giới-thiệu-chung)
 * [Screenshots](#screenshots)
-* [Công nghệ](#công nghệ)
-* [Cài đặt](#cài dặt)
+* [Công nghệ](#công-nghệ)
+* [Cài đặt](#cài-đặt)
 * [Code Examples](#Code Examples)
-* [Kiến trúc hệ thống](#kiến trúc hệ thống)
-* [Phát triển](#phát triển)
+* [Kiến trúc hệ thống](#kiến-trúc-hệ-thống)
+* [Phát triển](#phát-triển)
 * [Contact](#contact)
 
 ## Giới thiệu chung

@@ -27,7 +27,8 @@ Show examples of usage:
 ## Kiến trúc hệ thống
 * Trang chủ có phần tìm kiếm, mỗi thuật toán có thể lựa chọn lý thuyết hoặc biểu diễn thuật toán
 ![trang chủ](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/1.PNG)
-* Awesome feature 2
+* Phần lý thuyết
+![lý thuyết](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/10.PNG)
 * Awesome feature 3
 
 To-do list:

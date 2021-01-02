@@ -5,7 +5,6 @@
 * [Giới thiệu chung](#giới-thiệu-chung)
 * [Screenshots](#screenshots)
 * [Công nghệ](#công-nghệ)
-* [Cài đặt](#cài-đặt)
 * [Kiến trúc hệ thống](#kiến-trúc-hệ-thống)
 * [Phát triển](#phát-triển)
 * [Contact](#contact)
@@ -21,16 +20,13 @@ Với các sinh viên chuyên nghành tin học thì cụm từ Cấu trúc dữ
 * Bootstrap, Jquery
 * Html, Css
 
-## Cài đặt
-Describe how to install / setup your local environement / add link to demo version.
-
 ## Code Examples
 Show examples of usage:
 `put-your-code-here`
 
 ## Kiến trúc hệ thống
-List of features ready and TODOs for future development
-* Awesome feature 1
+* Trang chủ có phần tìm kiếm, mỗi thuật toán có thể lựa chọn lý thuyết hoặc biểu diễn thuật toán
+![trang chủ](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/1.PNG)
 * Awesome feature 2
 * Awesome feature 3
 
@@ -39,7 +35,7 @@ To-do list:
 * Wow improvement to be done 2
 
 ## Phát triển
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+
 
 ## Contact
 Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!

@@ -6,7 +6,6 @@
 * [Screenshots](#screenshots)
 * [Công nghệ](#công-nghệ)
 * [Cài đặt](#cài-đặt)
-* [Code Examples](#Code Examples)
 * [Kiến trúc hệ thống](#kiến-trúc-hệ-thống)
 * [Phát triển](#phát-triển)
 * [Contact](#contact)
@@ -18,9 +17,9 @@ Với các sinh viên chuyên nghành tin học thì cụm từ Cấu trúc dữ
 ![Example screenshot](./img/screenshot.png)
 
 ## Công nghệ
-*  - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* JavaScript
+* Bootstrap, Jquery
+* Html, Css
 
 ## Cài đặt
 Describe how to install / setup your local environement / add link to demo version.

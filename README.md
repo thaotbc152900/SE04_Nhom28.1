@@ -27,9 +27,18 @@ Show examples of usage:
 ## Kiến trúc hệ thống
 * Trang chủ có phần tìm kiếm, mỗi thuật toán có thể lựa chọn lý thuyết hoặc biểu diễn thuật toán
 ![trang chủ](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/1.PNG)
+
 * Phần lý thuyết
 ![lý thuyết](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/10.PNG)
-* Awesome feature 3
+
+* Phần biểu diễn thuật toán có thể hiện lý thuyết cơ bản và chạy thuật toán
+![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/2.PNG)
+
+* Chạy thuật toán có các lựa chọn như search, insert, ...mỗi bước thực hiện thuật toán và vòng lặp đều được hiển thị
+![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/4.PNG)
+
+![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/6.PNG)
+
 
 To-do list:
 * Wow improvement to be done 1

@@ -25,16 +25,16 @@ Show examples of usage:
 `put-your-code-here`
 
 ## Kiến trúc hệ thống
-* Trang chủ có phần tìm kiếm, mỗi thuật toán có thể lựa chọn lý thuyết hoặc biểu diễn thuật toán
+* Trang chủ có phần tìm kiếm, mỗi thuật toán có thể lựa chọn lý thuyết hoặc biểu diễn thuật toán.
 ![trang chủ](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/1.PNG)
 
-* Phần lý thuyết
+* Phần lý thuyết.
 ![lý thuyết](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/10.PNG)
 
-* Phần biểu diễn thuật toán có thể hiện lý thuyết cơ bản và chạy thuật toán
+* Phần biểu diễn thuật toán có thể hiện lý thuyết cơ bản và chạy thuật toán.
 ![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/2.PNG)
 
-* Chạy thuật toán có các lựa chọn như search, insert, ...mỗi bước thực hiện thuật toán và vòng lặp đều được hiển thị
+* Chạy thuật toán có các lựa chọn như search, insert, ...Mỗi bước thực hiện thuật toán và vòng lặp đều được hiển thị, có các nút điều khiển để kiểm soát quá trình chạy.
 ![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/4.PNG)
 
 ![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/6.PNG)

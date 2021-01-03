@@ -12,8 +12,8 @@
 Với các sinh viên chuyên nghành tin học thì cụm từ Cấu trúc dữ liệu (Data Structure) và giải thuật (Algorithms) không còn là xa lạ. Cấu trúc dữ liệu là cách lưu trữ, tổ chức dữ liệu có thứ tự, có hệ thống để dữ liệu có thể được sử dụng một cách hiệu quả. Giải thuật là một tập hợp hữu hạn các chỉ thị để được thực thi theo một thứ tự nào đó để thu được kết quả mong muốn. Nói chung thì giải thuật là độc lập với các ngôn ngữ lập trình, tức là một giải thuật có thể được triển khai trong nhiều ngôn ngữ lập trình khác nhau. Việc viết một chương trình, giải một bài toán được kết hợp bởi 2 yếu tố, lựa chọn một cấu trúc dữ liệu phù hợp, sau đó tìm ra phương hướng kết hợp mọi thứ bằng giải thuật để có thể giải được bài toán. Đây là một môn học bắt buộc và sẽ là thực sự khó cho bất kỳ sinh viên nào nếu không có sự chuẩn bị kỹ lưỡng. Nhận thấy điều này, chúng em đã viết ra website này để có thể hướng dẫn về các kiến thức cơ bản của bộ môn này giúp các bạn có thể dễ dàng tiếp cận và ứng dụng vào thực tế.
 
 ## Công nghệ
-* JavaScript
-* Bootstrap, Jquery
+* JavaScript, Jquery
+* Bootstrap
 * Html, Css
 
 ## Kiến trúc hệ thống

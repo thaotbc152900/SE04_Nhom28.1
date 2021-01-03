@@ -31,6 +31,9 @@ Với các sinh viên chuyên nghành tin học thì cụm từ Cấu trúc dữ
 
 ![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/6.PNG)
 
+* Ở dưới cùng góc phải sẽ có các phần giới thiệu về trang web, thông tin người xây dựng trang web, điều khoản sử dụng.
+![thông tin](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/9.PNG)
+
 
 ## Phát triển
 * Tạo đăng kí và đăng nhập cho người dùng để họ có thể để lại phản hồi cải thiện trang web hơn.

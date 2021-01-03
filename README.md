@@ -29,7 +29,8 @@ Với các sinh viên chuyên nghành tin học thì cụm từ Cấu trúc dữ
 ![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/4.PNG)
 
 ![hiển thị](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/6.PNG)
-![video](https://github.com/thaotbc152900/SE04_Nhom28.1/blob/master/imgScreen/2021-01-03%2018-19-47_Trim%20(2).mp4)
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=EpVODSYEwVA&ab_channel=GeordieIntelligence)
+
 
 ## Phát triển
 * Tạo đăng kí và đăng nhập cho người dùng để họ có thể để lại phản hồi cải thiện trang web hơn.

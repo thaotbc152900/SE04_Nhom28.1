@@ -38,4 +38,4 @@ Với các sinh viên chuyên nghành tin học thì cụm từ Cấu trúc dữ
 * Phát triển hệ thống câu hỏi trực tuyến cho phép người dùng kiểm tra kiến thức của họ về cấu trúc dữ liệu và thuật toán. Các câu hỏi được tạo ngẫu nhiên thông qua một số quy tắc và câu trả lời của người dùng sẽ được chấm điểm ngay lập tức.
 
 ## Video demo
-[link video demo](https://www.youtube.com/watch?v=EpVODSYEwVA&ab_channel=GeordieIntelligence)
+[Link video demo!!!](https://www.youtube.com/watch?v=EpVODSYEwVA&ab_channel=GeordieIntelligence)
